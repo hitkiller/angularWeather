@@ -1,0 +1,12 @@
+<ul id="cities">
+    <li class="city_details" *ngFor="let o of forecast">
+        <span class='current_location'>{{o.name}}</span>
+        <span class='current_temp'>{{o.temp}}&deg;C</span>
+        <span class='current_clouds'>Clouds: {{o.clouds}}%</span>
+        <span class='current_humidity'>Humidity: {{o.humidity}}%</span>
+        <span class='current_current_wind'>Wind: {{o.wind}} m/s</span>
+        <span class='current_pressure'>Pressure: {{o.pressure}} hPa</span>
+        <span class='current_weather_image {{o.weather}}'></span>
+        <span class='current_weather'>{{o.description}}</span>
+    </li>
+</ul>
