@@ -7,10 +7,10 @@ import { AgmCoreModule, MapsAPILoader } from 'angular2-google-maps/core';
 import {AppComponent}  from './app.component';
 import {HeaderComponent} from "./header.component";
 import {FooterComponent} from "./footer.component";
-import {MapComponent} from "./map.component";
-import {MeteoCitiesComponent} from "./meteo-cities.component";
+import {MapComponent} from "./map/map.component";
+import {MeteoCitiesComponent} from "./meteo/meteo-cities.component";
 
-import { GeolocationService } from './geolocation.service';
+import { Geolocator } from './map/geolocation.service';
 
 @NgModule({
     imports: [BrowserModule, HttpModule,
@@ -19,7 +19,7 @@ import { GeolocationService } from './geolocation.service';
         })],
     declarations: [AppComponent, HeaderComponent, FooterComponent, MapComponent, MeteoCitiesComponent],
     bootstrap: [AppComponent],
-    providers: [GeolocationService]
+    providers: [Geolocator]
 })
 
 export class AppModule { }

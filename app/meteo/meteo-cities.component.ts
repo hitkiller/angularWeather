@@ -1,15 +1,15 @@
-/// <reference path="../typings/index.d.ts" />
-
 import {Component, OnInit, OnChanges, AfterContentInit} from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
+import { Geolocator } from '../map/geolocation.service';
 
 import {MeteoData} from './meteo-data';
 
 @Component({
     selector: 'meteo-cities',
-    templateUrl: 'app/meteo-cities.component.html',
-    styleUrls: ['app/meteo-cities.component.css']
+    templateUrl: 'app/meteo/meteo-cities.component.html',
+    styleUrls: ['app/meteo/meteo-cities.component.css'],
+    providers: [Geolocator]
 })
 
 
@@ -20,9 +20,9 @@ export class MeteoCitiesComponent implements OnInit {
 
     private _units = 'metric';
     private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
-    private _meteoUrl = 'http://api.openweathermap.org/data/2.5/find?lat=53.920863499999996&lon=27.666347899999998&cnt=50&units=' + this._units + '&APPID=' + this._APPID;
 
-    constructor(private http: Http) { }
+
+    constructor(private http: Http, private geolocationService: Geolocator) { }
 
     ngOnInit() {
         this.getMeteo()
@@ -32,12 +32,11 @@ export class MeteoCitiesComponent implements OnInit {
     }
 
     getMeteo() {
-        return this.http.get(this._meteoUrl)
-            .map((res: Response) => {
-                this.citiesData = res.json().list;
-                this.forecast = displayWeatherData(this.citiesData);
-            })
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+        return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).flatMap(pos => this.http.get('http://api.openweathermap.org/data/2.5/find?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&cnt=50&units=' + this._units + '&APPID=' + this._APPID)).map((res: Response) => {
+            this.citiesData = res.json().list;
+            this.forecast = displayWeatherData(this.citiesData);
+        })
+        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 }
 
