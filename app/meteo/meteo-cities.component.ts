@@ -21,6 +21,8 @@ export class MeteoCitiesComponent implements OnInit {
     citiesData: MeteoData[];
     forecast: MeteoData[];
 
+    public isInFavorites:boolean = false;
+
     private _units = 'metric';
     private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
 

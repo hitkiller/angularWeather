@@ -35,13 +35,18 @@
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: auto;
-    background: #fff;
-    border-bottom: 3px solid #f05514;
+    background: #f6f6f6;
+    border-bottom: 3px solid #bdbab9;
     border-right: 1px solid #bdbab9;
     border-left: 1px solid #bdbab9;
     border-top: 1px solid #bdbab9;
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.city_details:hover {
+    cursor: pointer;
+    background: #ffffff;
 }
 
 .city-filter {
@@ -122,4 +127,32 @@ span.current_weather_image.Extreme {
 
 span.current_weather_image.Additional {
     background-image: url(../images/svg/additional-icon.svg);
+}
+
+span.favorite_icon {
+    background-image: url(../images/svg/favorite-icon.svg);
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    -webkit-filter: grayscale(100%) brightness(5) brightness(.9);
+    filter: grayscale(100%) brightness(5) brightness(0.7);
+}
+
+.city_details.favorite {
+    background: #ffffff;
+    border-bottom: 3px solid #f05514;
+}
+
+.city_details.favorite span.current_location {
+    color: #f05514;
+}
+
+.city_details.favorite span.favorite_icon {
+    -webkit-filter: none;
+    filter: none;
 }

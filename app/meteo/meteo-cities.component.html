@@ -1,6 +1,7 @@
 <div class="city-filter"><input type="text" [(ngModel)]="cityName" placeholder="Search for the location you're interested in..."></div>
 <ul id="cities">
-    <li class="city_details" *ngFor="let o of forecast | searchCity:cityName">
+    <li class="city_details" title="click to favor" [ngClass]="{'favorite': o.isInFavorites }" (click)="o.isInFavorites = !o.isInFavorites;" *ngFor="let o of forecast | searchCity:cityName">
+        <span class='favorite_icon'></span>
         <span class='current_location'>{{o.name | uppercase}}</span>
         <span class='current_temp'>{{o.temp | number : '1.0-1'}}&deg;C / {{o.temp | tempToFahrenheit:celsius | number : '1.0-1'}}&deg;F</span>
         <span class='current_clouds'>Clouds: {{o.clouds}}%</span>
