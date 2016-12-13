@@ -1,17 +1,20 @@
 import {Component, OnInit, OnChanges, AfterContentInit} from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {FormsModule}   from '@angular/forms';
 import {Observable} from 'rxjs/Rx';
-import { Geolocator } from '../map/geolocation.service';
+import {Geolocator} from '../map/geolocation.service';
 
 import {MeteoData} from './meteo-data';
+import {TempConversionPipe} from './utilities/temp-conversion.pipe';
+import {WindDirectionPipe} from './utilities/wind-direction.pipe';
+import {SearchPipe} from './utilities/search.pipe';
 
 @Component({
     selector: 'meteo-cities',
     templateUrl: 'app/meteo/meteo-cities.component.html',
     styleUrls: ['app/meteo/meteo-cities.component.css'],
-    providers: [Geolocator]
+    providers: [Geolocator, TempConversionPipe, WindDirectionPipe, SearchPipe]
 })
-
 
 export class MeteoCitiesComponent implements OnInit {
     errorMessage: string;
@@ -21,8 +24,7 @@ export class MeteoCitiesComponent implements OnInit {
     private _units = 'metric';
     private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
 
-
-    constructor(private http: Http, private geolocationService: Geolocator) { }
+    constructor(private http: Http, private geolocationService: Geolocator) {   }
 
     ngOnInit() {
         this.getMeteo()
@@ -48,6 +50,7 @@ export function displayWeatherData(result: MeteoData[]) {
             temp: item.main.temp,
             humidity: item.main.humidity,
             wind: item.wind.speed,
+            winddir: item.wind.deg,
             pressure: item.main.pressure,
             clouds: item.clouds.all,
             description: item.weather[0].description,

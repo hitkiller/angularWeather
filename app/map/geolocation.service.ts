@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class Geolocator {
-
     public getLocation = function getLocation(opts): Observable<any> {
         return Observable.create(observer => {
             if (window.navigator && window.navigator.geolocation) {
