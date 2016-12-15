@@ -44,11 +44,11 @@ export class MeteoCitiesComponent implements OnInit {
 
     getMeteo() {
         return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`)).map((res: Response) => {
-            setInterval(() => {
+            //setInterval(() => {
             this.cd.markForCheck();
             this.citiesData = res.json().list;
             this.forecast = displayWeatherData(this.citiesData);
-            }, 15000);
+            //}, 15000);
         })
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
