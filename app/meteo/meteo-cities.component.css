@@ -45,7 +45,6 @@
 }
 
 .city_details:hover {
-    cursor: pointer;
     background: #ffffff;
 }
 
@@ -117,7 +116,7 @@ span.current_weather_image.Drizzle {
     background-image: url(../images/svg/drizzle-icon.svg);
 }
 
-span.current_weather_image.Atmosphere {
+span.current_weather_image.Atmosphere, span.current_weather_image.Mist {
     background-image: url(../images/svg/atmosphere-icon.svg);
 }
 
@@ -130,6 +129,7 @@ span.current_weather_image.Additional {
 }
 
 span.favorite_icon {
+    cursor: pointer;
     background-image: url(../images/svg/favorite-icon.svg);
     width: 20px;
     height: 20px;
