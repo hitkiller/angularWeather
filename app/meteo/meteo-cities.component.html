@@ -2,6 +2,7 @@
 <ul id="cities">
     <li class="city_details" [ngClass]="{'favorite': o.isInFavorites }" *ngFor="let o of forecast | searchCity:cityName">
         <span class='favorite_icon' title="{{ o.isInFavorites == true ? 'Remove from favorites' : 'Click to favor' }}" (click)="o.isInFavorites = !o.isInFavorites;"></span>
+        <span class='remove_icon' title="Remove from selection" (click)="removeItem(o)"></span>
         <span class='current_location'>{{o.name | uppercase}}</span>
         <span class='current_temp'>{{o.temp | number : '1.0-1'}}&deg;C / {{o.temp | tempToFahrenheit:celsius | number : '1.0-1'}}&deg;F</span>
         <span class='current_clouds'>Clouds: {{o.clouds}}%</span>

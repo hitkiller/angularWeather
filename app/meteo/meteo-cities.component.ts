@@ -21,11 +21,17 @@ export class MeteoCitiesComponent implements OnInit {
     errorMessage: string;
     citiesData: MeteoData[];
     forecast: MeteoData[];
+    private _units = 'metric';
+    private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
 
     public isInFavorites: boolean = false;
 
-    private _units = 'metric';
-    private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
+    public removeItem(item) {
+        var index = this.forecast.indexOf(item);
+        this.forecast.splice(index, 1);
+        console.log(`this.forecast length: ${this.forecast.length}`);
+        return this.forecast = this.forecast.slice();
+    }
 
     constructor(private http: Http, private geolocationService: Geolocator, private cd: ChangeDetectorRef) { }
 
@@ -37,11 +43,11 @@ export class MeteoCitiesComponent implements OnInit {
     }
 
     getMeteo() {
-        return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).flatMap(pos => this.http.get('http://api.openweathermap.org/data/2.5/find?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&cnt=50&units=' + this._units + '&APPID=' + this._APPID)).map((res: Response) => {
+        return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`)).map((res: Response) => {
             setInterval(() => {
-                this.cd.markForCheck();
-                this.citiesData = res.json().list;
-                this.forecast = displayWeatherData(this.citiesData);
+            this.cd.markForCheck();
+            this.citiesData = res.json().list;
+            this.forecast = displayWeatherData(this.citiesData);
             }, 15000);
         })
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

@@ -86,7 +86,7 @@ span.current_weather_image {
     height: 70px;
     position: absolute;
     top: 40px;
-    right: 10px;
+    right: 8px;
     background-size: 100% 100%;
     -o-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
@@ -141,6 +141,24 @@ span.favorite_icon {
     bottom: 8px;
     -webkit-filter: grayscale(100%) brightness(5) brightness(.9);
     filter: grayscale(100%) brightness(5) brightness(0.7);
+}
+
+span.remove_icon {
+    cursor: pointer;
+    background-image: url(../images/svg/remove-icon.svg);
+    width: 14px;
+    height: 14px;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    opacity: 0.3;
+}
+
+span.remove_icon:hover {
+    opacity: 1;
 }
 
 .city_details.favorite {
