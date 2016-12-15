@@ -1,5 +1,17 @@
-import {Component, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, OnChanges, AfterContentInit} from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {
+    Component,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    OnInit,
+    OnChanges,
+    AfterContentInit
+} from '@angular/core';
+import {
+    Http,
+    Response,
+    Headers,
+    RequestOptions
+} from '@angular/http';
 import {FormsModule}   from '@angular/forms';
 import {Observable} from 'rxjs/Rx';
 import {Geolocator} from '../map/geolocation.service';
@@ -27,35 +39,37 @@ export class MeteoCitiesComponent implements OnInit {
     public isInFavorites: boolean = false;
 
     public removeItem(item) {
-        var index = this.forecast.indexOf(item);
-        this.forecast.splice(index, 1);
+        this.forecast.splice(this.forecast.indexOf(item), 1);
         console.log(`this.forecast length: ${this.forecast.length}`);
         return this.forecast = this.forecast.slice();
     }
 
-    constructor(private http: Http, private geolocationService: Geolocator, private cd: ChangeDetectorRef) { }
+    constructor(private http: Http, private geolocationService: Geolocator, private cd: ChangeDetectorRef) {
+    }
 
     ngOnInit() {
         this.getMeteo()
             .subscribe(
             data => this.citiesData = data,
-            error => this.errorMessage = <any>error);
+            error => this.errorMessage = <any>error
+            );
     }
 
     getMeteo() {
-        return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`)).map((res: Response) => {
-            //setInterval(() => {
-            this.cd.markForCheck();
-            this.citiesData = res.json().list;
-            this.forecast = displayWeatherData(this.citiesData);
-            //}, 15000);
-        })
+        return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 })
+            .flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`))
+            .map((res: Response) => {
+                //setInterval(() => {
+                this.cd.markForCheck();
+                this.citiesData = res.json().list;
+                this.forecast = displayWeatherData(this.citiesData);
+                //}, 15000);
+            })
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 }
 
-
-export function displayWeatherData(result: MeteoData[]) {
+function displayWeatherData(result: MeteoData[]) {
     let forecast = [];
     result.forEach((item) => {
         forecast.push({

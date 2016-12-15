@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Observer } from 'rxjs/Observer';
-import { Observable } from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Observer} from 'rxjs/Observer';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class Geolocator {
@@ -9,19 +9,14 @@ export class Geolocator {
             if (window.navigator && window.navigator.geolocation) {
                 window.navigator.geolocation.watchPosition((position) => {
                     observer.next(position);
-                }, (error) => {
-                    switch (error.code) {
-                        case 1:
-                            observer.error('errors.location.permissionDenied');
-                            break;
-                        case 2:
-                            observer.error('errors.location.positionUnavailable');
-                            break;
-                        case 3:
-                            observer.error('errors.location.timeout');
-                            break;
-                    }
-                }, opts);
+                },
+                    (error) => {
+                        observer.error({
+                            1: 'errors.location.permissionDenied',
+                            2: 'errors.location.positionUnavailable',
+                            3: 'errors.location.timeout'
+                        }[error.code]);
+                    }, opts);
             } else {
                 observer.error('errors.location.unsupportedBrowser');
             }

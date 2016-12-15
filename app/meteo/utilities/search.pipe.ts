@@ -1,6 +1,6 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({ name: 'searchCity' })
+@Pipe({name: 'searchCity'})
 export class SearchPipe implements PipeTransform {
     transform(value, cityName) {
         if (value == null || value == "") return null;

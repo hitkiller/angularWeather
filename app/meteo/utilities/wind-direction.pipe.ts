@@ -1,6 +1,6 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({ name: 'windDescribe' })
+@Pipe({name: 'windDescribe'})
 export class WindDirectionPipe implements PipeTransform {
     transform(winddir: number) {
         if (winddir >= 326.25 && winddir <= 348.75) {
