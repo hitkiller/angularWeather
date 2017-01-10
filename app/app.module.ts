@@ -10,7 +10,7 @@ import {HeaderComponent} from "./header.component";
 import {FooterComponent} from "./footer.component";
 
 import {MeteoCitiesComponent} from "./meteo/meteo-cities.component";
-import {TempConversionPipe} from './meteo/utilities/temp-conversion.pipe';
+import {TempConversionPipe} from './meteo/utilities/temp-measure-conversion.pipe';
 import {WindDirectionPipe} from './meteo/utilities/wind-direction.pipe';
 import {SearchPipe} from './meteo/utilities/search.pipe';
 

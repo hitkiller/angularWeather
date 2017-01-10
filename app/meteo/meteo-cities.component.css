@@ -22,19 +22,22 @@
     list-style-type: none;
 }
 
+.city_wrapper {
+  margin: 5px;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 200px;
+  -ms-flex: 0 1 200px;
+  flex: 0 1 200px;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
 .city_details {
     position: relative;
     padding: 10px;
-    margin: 5px;
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
-    -webkit-flex: 0 1 200px;
-    -ms-flex: 0 1 200px;
-    flex: 0 1 200px;
-    -webkit-align-self: auto;
-    -ms-flex-item-align: auto;
-    align-self: auto;
     background: #f6f6f6;
     border-bottom: 3px solid #bdbab9;
     border-right: 1px solid #bdbab9;
@@ -79,6 +82,20 @@ span.current_location {
 span.current_temp {
     font-size: 1.3em;
     margin-bottom: 0.5em;
+    display:inline-block;
+    border-radius: 3px;
+    padding:0px 5px;
+    background: rgba(0,0,0,0.07);
+}
+span.current_temp.minus {
+    background: rgba(0,175,190,0.07);
+}
+span.current_temp.plus {
+    background: rgba(240,85,20,0.07);
+}
+span.current_temp .current_temp_fahrenheit {
+    font-size: 0.6em;
+    display:inline-block;
 }
 
 span.current_weather_image {
@@ -116,7 +133,7 @@ span.current_weather_image.Drizzle {
     background-image: url(../images/svg/drizzle-icon.svg);
 }
 
-span.current_weather_image.Atmosphere, span.current_weather_image.Mist {
+span.current_weather_image.Atmosphere, span.current_weather_image.Mist, span.current_weather_image.Smoke {
     background-image: url(../images/svg/atmosphere-icon.svg);
 }
 

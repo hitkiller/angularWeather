@@ -17,7 +17,7 @@ import {Observable} from 'rxjs/Rx';
 import {Geolocator} from '../map/geolocation.service';
 
 import {MeteoData} from './meteo-data';
-import {TempConversionPipe} from './utilities/temp-conversion.pipe';
+import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {WindDirectionPipe} from './utilities/wind-direction.pipe';
 import {SearchPipe} from './utilities/search.pipe';
 
