@@ -18,6 +18,7 @@ import {Geolocator} from '../map/geolocation.service';
 
 import {MeteoData} from './meteo-data';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
+import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './utilities/search.pipe';
 
 @Component({
