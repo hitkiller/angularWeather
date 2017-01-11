@@ -11,7 +11,6 @@ import {FooterComponent} from "./footer.component";
 
 import {MeteoCitiesComponent} from "./meteo/meteo-cities.component";
 import {TempConversionPipe} from './meteo/utilities/temp-measure-conversion.pipe';
-import {WindDirectionPipe} from './meteo/utilities/wind-direction.pipe';
 import {SearchPipe} from './meteo/utilities/search.pipe';
 
 import {MapComponent} from "./map/map.component";
@@ -34,7 +33,6 @@ import {Geolocator} from './map/geolocation.service';
       MapComponent,
       MeteoCitiesComponent,
       TempConversionPipe,
-      WindDirectionPipe,
       SearchPipe
     ],
     bootstrap: [AppComponent],

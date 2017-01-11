@@ -23,16 +23,16 @@
 }
 
 .city_wrapper {
-  margin: 5px;
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  -webkit-flex: 0 1 200px;
-  -ms-flex: 0 1 200px;
-  flex: 0 1 200px;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto;
+    margin: 5px;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 200px;
+    -ms-flex: 0 1 200px;
+    flex: 0 1 200px;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
 }
 
 .city_details {
@@ -82,20 +82,28 @@ span.current_location {
 span.current_temp {
     font-size: 1.3em;
     margin-bottom: 0.5em;
-    display:inline-block;
+    display: inline-block;
     border-radius: 3px;
-    padding:0px 5px;
-    background: rgba(0,0,0,0.07);
+    padding: 0px 5px;
+    background: rgba(0, 0, 0, 0.07);
 }
+
 span.current_temp.minus {
-    background: rgba(0,175,190,0.07);
+    background: rgba(0, 175, 190, 0.07);
 }
+
 span.current_temp.plus {
-    background: rgba(240,85,20,0.07);
+    background: rgba(240, 85, 20, 0.07);
 }
+
 span.current_temp .current_temp_fahrenheit {
     font-size: 0.6em;
-    display:inline-block;
+    display: inline-block;
+}
+
+span.current_wind_direction {
+    display: inline-block;
+    padding: 0px 3px;
 }
 
 span.current_weather_image {

@@ -11,7 +11,7 @@
             </span>
             <span class='current_clouds'>Clouds: {{o.clouds}}%</span>
             <span class='current_humidity'>Humidity: {{o.humidity}}%</span>
-            <span class='current_current_wind'>Wind: {{o.wind}} m/s {{o.winddir | windDescribe:wind}}</span>
+            <span class='current_wind'>Wind: {{o.wind}} m/s <span [style.transform]="'rotate(' + o.winddir + 'deg)'" class="current_wind_direction">&uarr;</span></span>
             <span class='current_pressure'>Pressure: {{o.pressure}} hPa</span>
             <span class='current_weather_image {{o.weather}}'></span>
             <span class='current_weather'>{{o.description}}</span>

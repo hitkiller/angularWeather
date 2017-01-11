@@ -18,14 +18,13 @@ import {Geolocator} from '../map/geolocation.service';
 
 import {MeteoData} from './meteo-data';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
-import {WindDirectionPipe} from './utilities/wind-direction.pipe';
 import {SearchPipe} from './utilities/search.pipe';
 
 @Component({
     selector: 'meteo-cities',
     templateUrl: 'app/meteo/meteo-cities.component.html',
     styleUrls: ['app/meteo/meteo-cities.component.css'],
-    providers: [Geolocator, TempConversionPipe, WindDirectionPipe, SearchPipe],
+    providers: [Geolocator, TempConversionPipe, SearchPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
