@@ -20,32 +20,52 @@ span.current_weather_image {
     right: 8px;
 }
 
-
-
-
-
-.wi-day-sunny:before {
+.wi-day-sunny:before, .wi-day-clear:before {
     content: "\f00d";
+}
+
+.wi-night-clear:before {
+    content: "\f02e";
 }
 
 .wi-day-cloudy:before {
     content: "\f002";
 }
 
-.wi-day-cloudy-gusts:before {
+.wi-night-cloudy:before {
+    content: "\f086";
+}
+
+.wi-day-cloudy.gusts:before {
     content: "\f000";
 }
 
-.wi-day-cloudy-windy:before {
+.wi-night-cloudy.gusts:before {
+    content: "\f022";
+}
+
+.wi-day-cloudy.windy:before {
     content: "\f001";
 }
 
-.wi-day-fog:before, .wi-day-mist:before {
+.wi-night-cloudy.windy:before {
+    content: "\f023";
+}
+
+.wi-day-fog:before, .wi-day-mist:before, .wi-day-atmosphere:before {
     content: "\f003";
+}
+
+.wi-night-fog:before, .wi-night-mist:before, .wi-night-atmosphere:before, .wi-night-haze:before {
+    content: "\f04a";
 }
 
 .wi-day-hail:before {
     content: "\f004";
+}
+
+.wi-night-hail:before {
+    content: "\f024";
 }
 
 .wi-day-haze:before {
@@ -56,51 +76,99 @@ span.current_weather_image {
     content: "\f005";
 }
 
+.wi-night-lightning:before {
+    content: "\f033";
+}
+
 .wi-day-rain:before {
     content: "\f008";
 }
 
-.wi-day-rain-mix:before {
+.wi-night-rain:before {
+    content: "\f028";
+}
+
+.wi-day-rain.mix:before, .wi-day-drizzle:before {
     content: "\f006";
 }
 
-.wi-day-rain-wind:before {
+.wi-night-rain.mix:before, .wi-night-drizzle:before {
+    content: "\f026";
+}
+
+.wi-day-rain.wind:before {
     content: "\f007";
+}
+
+.wi-night-rain.wind:before {
+    content: "\f027";
 }
 
 .wi-day-showers:before {
     content: "\f009";
 }
 
+.wi-night-showers:before {
+    content: "\f029";
+}
+
 .wi-day-sleet:before {
     content: "\f0b2";
 }
 
-.wi-day-sleet-storm:before {
+.wi-night-sleet:before {
+    content: "\f0b4";
+}
+
+.wi-day-sleet.storm:before {
     content: "\f068";
+}
+
+.wi-night-sleet.storm:before {
+    content: "\f06a";
 }
 
 .wi-day-snow:before {
     content: "\f00a";
 }
 
-.wi-day-snow-thunderstorm:before {
+.wi-night-snow:before {
+    content: "\f02a";
+}
+
+.wi-day-snow.thunderstorm:before {
     content: "\f06b";
 }
 
-.wi-day-snow-wind:before {
+.wi-night-snow.thunderstorm:before {
+    content: "\f06d";
+}
+
+.wi-day-snow.wind:before {
     content: "\f065";
+}
+
+.wi-night-snow.wind:before {
+    content: "\f067";
 }
 
 .wi-day-sprinkle:before {
     content: "\f00b";
 }
 
-.wi-day-storm-showers:before {
+.wi-night-sprinkle:before {
+    content: "\f02b";
+}
+
+.wi-day-storm.showers:before {
     content: "\f00e";
 }
 
-.wi-day-sunny-overcast:before {
+.wi-night-storm.showers:before {
+    content: "\f02c";
+}
+
+.wi-day-sunny.overcast:before {
     content: "\f00c";
 }
 
@@ -108,354 +176,50 @@ span.current_weather_image {
     content: "\f010";
 }
 
+.wi-night-thunderstorm:before {
+    content: "\f02d";
+}
+
 .wi-day-windy:before {
     content: "\f085";
 }
 
-.wi-solar-eclipse:before {
-    content: "\f06e";
-}
-
-.wi-hot:before {
-    content: "\f072";
-}
-
-.wi-day-cloudy-high:before {
+.wi-day-cloudy.high:before, .wi-day-clouds:before {
     content: "\f07d";
 }
 
-.wi-day-light-wind:before {
-    content: "\f0c4";
-}
-
-.wi-night-clear:before {
-    content: "\f02e";
-}
-
-.wi-night-alt-cloudy:before {
-    content: "\f086";
-}
-
-.wi-night-alt-cloudy-gusts:before {
-    content: "\f022";
-}
-
-.wi-night-alt-cloudy-windy:before {
-    content: "\f023";
-}
-
-.wi-night-alt-hail:before {
-    content: "\f024";
-}
-
-.wi-night-alt-lightning:before {
-    content: "\f025";
-}
-
-.wi-night-alt-rain:before {
-    content: "\f028";
-}
-
-.wi-night-alt-rain-mix:before {
-    content: "\f026";
-}
-
-.wi-night-alt-rain-wind:before {
-    content: "\f027";
-}
-
-.wi-night-alt-showers:before {
-    content: "\f029";
-}
-
-.wi-night-alt-sleet:before {
-    content: "\f0b4";
-}
-
-.wi-night-alt-sleet-storm:before {
-    content: "\f06a";
-}
-
-.wi-night-alt-snow:before {
-    content: "\f02a";
-}
-
-.wi-night-alt-snow-thunderstorm:before {
-    content: "\f06d";
-}
-
-.wi-night-alt-snow-wind:before {
-    content: "\f067";
-}
-
-.wi-night-alt-sprinkle:before {
-    content: "\f02b";
-}
-
-.wi-night-alt-storm-showers:before {
-    content: "\f02c";
-}
-
-.wi-night-alt-thunderstorm:before {
-    content: "\f02d";
-}
-
-.wi-night-cloudy:before {
-    content: "\f031";
-}
-
-.wi-night-cloudy-gusts:before {
-    content: "\f02f";
-}
-
-.wi-night-cloudy-windy:before {
-    content: "\f030";
-}
-
-.wi-night-fog:before {
-    content: "\f04a";
-}
-
-.wi-night-hail:before {
-    content: "\f032";
-}
-
-.wi-night-lightning:before {
-    content: "\f033";
-}
-
-.wi-night-partly-cloudy:before {
-    content: "\f083";
-}
-
-.wi-night-rain:before {
-    content: "\f036";
-}
-
-.wi-night-rain-mix:before {
-    content: "\f034";
-}
-
-.wi-night-rain-wind:before {
-    content: "\f035";
-}
-
-.wi-night-showers:before {
-    content: "\f037";
-}
-
-.wi-night-sleet:before {
-    content: "\f0b3";
-}
-
-.wi-night-sleet-storm:before {
-    content: "\f069";
-}
-
-.wi-night-snow:before {
-    content: "\f038";
-}
-
-.wi-night-snow-thunderstorm:before {
-    content: "\f06c";
-}
-
-.wi-night-snow-wind:before {
-    content: "\f066";
-}
-
-.wi-night-sprinkle:before {
-    content: "\f039";
-}
-
-.wi-night-storm-showers:before {
-    content: "\f03a";
-}
-
-.wi-night-thunderstorm:before {
-    content: "\f03b";
-}
-
-.wi-lunar-eclipse:before {
-    content: "\f070";
-}
-
-.wi-stars:before {
-    content: "\f077";
-}
-
-.wi-storm-showers:before {
-    content: "\f01d";
-}
-
-.wi-thunderstorm:before {
-    content: "\f01e";
-}
-
-.wi-night-alt-cloudy-high:before {
-    content: "\f07e";
-}
-
-.wi-night-cloudy-high:before {
+.wi-night-cloudy.high:before, .wi-night-clouds:before {
     content: "\f080";
 }
 
-.wi-night-alt-partly-cloudy:before {
-    content: "\f081";
+.wi-day-light.wind:before {
+    content: "\f0c4";
 }
 
-.wi-cloud:before {
-    content: "\f041";
-}
-
-.wi-cloudy:before {
-    content: "\f013";
-}
-
-.wi-cloudy-gusts:before {
-    content: "\f011";
-}
-
-.wi-cloudy-windy:before {
+.wi-night-light.wind:before {
     content: "\f012";
 }
 
-.wi-fog:before {
-    content: "\f014";
+.wi-day-hot:before {
+    content: "\f072";
 }
 
-.wi-hail:before {
-    content: "\f015";
-}
-
-.wi-rain:before {
-    content: "\f019";
-}
-
-.wi-rain-mix:before {
-    content: "\f017";
-}
-
-.wi-rain-wind:before {
-    content: "\f018";
-}
-
-.wi-showers:before {
-    content: "\f01a";
-}
-
-.wi-sleet:before {
-    content: "\f0b5";
-}
-
-.wi-snow:before {
-    content: "\f01b";
-}
-
-.wi-sprinkle:before {
-    content: "\f01c";
-}
-
-.wi-storm-showers:before {
-    content: "\f01d";
-}
-
-.wi-thunderstorm:before {
-    content: "\f01e";
-}
-
-.wi-snow-wind:before {
-    content: "\f064";
-}
-
-.wi-snow:before {
-    content: "\f01b";
-}
-
-.wi-smog:before {
-    content: "\f074";
-}
-
-.wi-smoke:before {
-    content: "\f062";
-}
-
-.wi-lightning:before {
-    content: "\f016";
-}
-
-.wi-raindrops:before {
-    content: "\f04e";
-}
-
-.wi-raindrop:before {
-    content: "\f078";
-}
-
-.wi-dust:before {
-    content: "\f063";
-}
-
-.wi-snowflake-cold:before {
-    content: "\f076";
-}
-
-.wi-windy:before {
-    content: "\f021";
-}
-
-.wi-strong-wind:before {
-    content: "\f050";
-}
-
-.wi-sandstorm:before {
-    content: "\f082";
-}
-
-.wi-earthquake:before {
-    content: "\f0c6";
-}
-
-.wi-fire:before {
-    content: "\f0c7";
-}
-
-.wi-flood:before {
-    content: "\f07c";
-}
-
-.wi-meteor:before {
-    content: "\f071";
-}
-
-.wi-tsunami:before {
-    content: "\f0c5";
-}
-
-.wi-volcano:before {
-    content: "\f0c8";
-}
-
-.wi-hurricane:before {
-    content: "\f073";
-}
-
-.wi-tornado:before {
-    content: "\f056";
-}
-
-.wi-small-craft-advisory:before {
-    content: "\f0cc";
-}
-
-.wi-gale-warning:before {
+.wi-day-gale:before, .wi-night-gale:before {
     content: "\f0cd";
 }
 
-.wi-storm-warning:before {
-    content: "\f0ce";
+.wi-day-smog:before, .wi-night-smog:before {
+    content: "\f074";
 }
 
-.wi-hurricane-warning:before {
-    content: "\f0cf";
+.wi-day-smoke:before, .wi-night-smoke:before {
+    content: "\f062";
+}
+
+.wi-day-additional:before {
+    content: "\f051";
+}
+
+.wi-night-additional:before {
+    content: "\f0c9";
 }

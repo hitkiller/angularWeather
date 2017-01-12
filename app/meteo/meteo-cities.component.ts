@@ -25,8 +25,8 @@ import {SearchPipe} from './utilities/search.pipe';
     selector: 'meteo-cities',
     templateUrl: 'app/meteo/meteo-cities.component.html',
     styleUrls: [
-      'app/meteo/css/meteo-cities.component.css',
-      'app/meteo/css/weather-icons.css',
+        'app/meteo/css/meteo-cities.component.css',
+        'app/meteo/css/weather-icons.css',
     ],
     providers: [Geolocator, TempConversionPipe, SearchPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -40,6 +40,7 @@ export class MeteoCitiesComponent implements OnInit {
     private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
 
     public isInFavorites: boolean = false;
+    public time_of_day = getTimeOfDay();
 
     public removeItem(item) {
         this.forecast.splice(this.forecast.indexOf(item), 1);
@@ -88,4 +89,13 @@ function displayWeatherData(result: MeteoData[]) {
         })
     });
     return forecast;
+}
+
+function getTimeOfDay() {
+    var hour = (new Date()).getHours();
+    var time_of_day = 'night';
+    if (hour >= 5 && hour <= 18) {
+        time_of_day = 'day';
+    }
+    return time_of_day;
 }
