@@ -1,0 +1,46 @@
+span.current_weather_image {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 40px;
+    right: 8px;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+
+span.current_weather_image.Snow {
+    background-image: url(../images/svg/snow-icon.svg);
+}
+
+span.current_weather_image.Thunderstorm {
+    background-image: url(../images/svg/thunderstorm-icon.svg);
+}
+
+span.current_weather_image.Rain {
+    background-image: url(../images/svg/rain-icon.svg);
+}
+
+span.current_weather_image.Clear {
+    background-image: url(../images/svg/clear-icon.svg);
+}
+
+span.current_weather_image.Clouds {
+    background-image: url(../images/svg/clouds-icon.svg);
+}
+
+span.current_weather_image.Drizzle {
+    background-image: url(../images/svg/drizzle-icon.svg);
+}
+
+span.current_weather_image.Atmosphere, span.current_weather_image.Mist, span.current_weather_image.Smoke {
+    background-image: url(../images/svg/atmosphere-icon.svg);
+}
+
+span.current_weather_image.Extreme {
+    background-image: url(../images/svg/extreme-icon.svg);
+}
+
+span.current_weather_image.Additional {
+    background-image: url(../images/svg/additional-icon.svg);
+}

@@ -24,7 +24,10 @@ import {SearchPipe} from './utilities/search.pipe';
 @Component({
     selector: 'meteo-cities',
     templateUrl: 'app/meteo/meteo-cities.component.html',
-    styleUrls: ['app/meteo/meteo-cities.component.css'],
+    styleUrls: [
+      'app/meteo/css/meteo-cities.component.css',
+      'app/meteo/css/weather-icons.css',
+    ],
     providers: [Geolocator, TempConversionPipe, SearchPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
