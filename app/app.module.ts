@@ -10,6 +10,7 @@ import {HeaderComponent} from "./header.component";
 import {FooterComponent} from "./footer.component";
 
 import {MeteoCitiesComponent} from "./meteo/meteo-cities.component";
+import {WeatherIconsComponent} from "./meteo/weather-icons.component";
 import {TempConversionPipe} from './meteo/utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './meteo/utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './meteo/utilities/search.pipe';
@@ -33,6 +34,7 @@ import {Geolocator} from './map/geolocation.service';
       FooterComponent,
       MapComponent,
       MeteoCitiesComponent,
+      WeatherIconsComponent,
       TempConversionPipe,
       TempColorDirective,
       SearchPipe

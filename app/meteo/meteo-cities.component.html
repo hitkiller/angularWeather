@@ -13,10 +13,7 @@
             <span class='current_humidity'>Humidity: {{o.humidity}}%</span>
             <span class='current_wind'>Wind: {{o.wind}} m/s <span [style.transform]="'rotate(' + o.winddir + 'deg)'" class="current_wind_direction">&uarr;</span></span>
             <span class='current_pressure'>Pressure: {{o.pressure}} hPa</span>
-            <span [ngSwitch]='time_of_day'>
-                 <span *ngSwitchCase = "'day'" class='current_weather_image wi-day-{{o.weather | lowercase}}'></span>
-                 <span *ngSwitchCase="'night'" class='current_weather_image wi-night-{{o.weather | lowercase}}'></span>
-            </span>
+            <current-weather-icons iconSet={{o.weather}}></current-weather-icons>
             <span class='current_weather'>{{o.description}}</span>
         </div>
     </li>
