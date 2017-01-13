@@ -21,6 +21,8 @@ import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './utilities/search.pipe';
 
+import * as utilGetTimeFunction from './utilities/get-time-func';
+
 @Component({
     selector: 'meteo-cities',
     templateUrl: 'app/meteo/meteo-cities.component.html',
@@ -40,7 +42,7 @@ export class MeteoCitiesComponent implements OnInit {
     private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
 
     public isInFavorites: boolean = false;
-    public time_of_day = getTimeOfDay();
+    public time_of_day = utilGetTimeFunction.getTimeOfDay();
 
     public removeItem(item) {
         this.forecast.splice(this.forecast.indexOf(item), 1);
@@ -89,13 +91,4 @@ function displayWeatherData(result: MeteoData[]) {
         })
     });
     return forecast;
-}
-
-function getTimeOfDay() {
-    var hour = (new Date()).getHours();
-    var time_of_day = 'night';
-    if (hour >= 5 && hour <= 18) {
-        time_of_day = 'day';
-    }
-    return time_of_day;
 }
