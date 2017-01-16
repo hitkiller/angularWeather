@@ -84,7 +84,7 @@ span.current_temp {
     margin-bottom: 0.5em;
     display: inline-block;
     border-radius: 3px;
-    padding: 0px 5px;
+    padding: 0px 3px;
     background: rgba(0, 0, 0, 0.07);
 }
 

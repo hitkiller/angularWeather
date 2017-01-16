@@ -13,7 +13,7 @@
             <span class='current_humidity'>Humidity: {{o.humidity}}%</span>
             <span class='current_wind'>Wind: {{o.wind}} m/s <span [style.transform]="'rotate(' + o.winddir + 'deg)'" class="current_wind_direction">&uarr;</span></span>
             <span class='current_pressure'>Pressure: {{o.pressure}} hPa</span>
-            <current-weather-icons iconSet={{o.weather}}></current-weather-icons>
+            <current-weather-icons weather={{o.weather}}></current-weather-icons>
             <span class='current_weather'>{{o.description}}</span>
         </div>
     </li>

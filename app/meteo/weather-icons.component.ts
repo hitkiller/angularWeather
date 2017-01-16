@@ -18,7 +18,7 @@ export class WeatherIconsComponent {
     constructor() {
     }
 
-    @Input() set iconSet(description: string) {
+    @Input() set weather(description: string) {
       this.icon = description;
       }
 }
