@@ -67,7 +67,7 @@ export class MeteoCitiesComponent implements OnInit {
                     this.forecast = utilDisplayWeatherFunction.displayWeatherData(this.citiesData);
               //  }, 15000);
             })
-            .publish()
+            .publishReplay(1)
             .refCount()
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
