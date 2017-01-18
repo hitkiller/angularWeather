@@ -22,12 +22,14 @@ export class MapComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).subscribe(pos => {
-            this.latitude = pos.coords.latitude;
-            this.longitude = pos.coords.longitude;
-        }, err => {
-            this.err = err;
-            console.log(err);
-        });
+        this.geolocationService.getLocation()
+            .retryWhen(error => error.delay(9000))
+            .subscribe(pos => {
+                this.latitude = pos.latitude;
+                this.longitude = pos.longitude;
+            }, err => {
+                this.err = err;
+                console.log(err);
+            })
     }
 }

@@ -1,25 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Observer} from 'rxjs/Observer';
-import {Observable} from 'rxjs/Observable';
+import {Observer, Observable, BehaviorSubject} from 'rxjs';
 
 @Injectable()
 export class Geolocator {
-    public getLocation = function getLocation(opts): Observable<any> {
-        return Observable.create(observer => {
-            if (window.navigator && window.navigator.geolocation) {
-                window.navigator.geolocation.watchPosition((position) => {
-                    observer.next(position);
-                },
-                    (error) => {
-                        observer.error({
-                            1: 'errors.location.permissionDenied',
-                            2: 'errors.location.positionUnavailable',
-                            3: 'errors.location.timeout'
-                        }[error.code]);
-                    }, opts);
-            } else {
-                observer.error('errors.location.unsupportedBrowser');
-            }
-        });
-    }
+    public getLocation = function getLocation(opts = { enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }): BehaviorSubject<any> {
+        let defaultLocation = new BehaviorSubject({ latitude: 53, longitude: 27 });
+
+        window.navigator.geolocation.getCurrentPosition((position) => {
+            defaultLocation.next(position.coords);
+        },
+            (error) => {
+                defaultLocation.error({
+                    1: 'errors.location.permissionDenied',
+                    2: 'errors.location.positionUnavailable',
+                    3: 'errors.location.timeout'
+                }[error.code]);
+            }, opts);
+        return defaultLocation;
+    };
 }

@@ -58,15 +58,17 @@ export class MeteoCitiesComponent implements OnInit {
     }
 
     getMeteo() {
-        return this.geolocationService.getLocation({ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 })
-            .flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`))
+        return this.geolocationService.getLocation()
+            .flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.latitude}&lon=${pos.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`))
             .map((res: Response) => {
-                //setInterval(() => {
-                this.cd.markForCheck();
-                this.citiesData = res.json().list;
-                this.forecast = utilDisplayWeatherFunction.displayWeatherData(this.citiesData);
-                //}, 15000);
+              //  setInterval(() => {
+                    this.cd.markForCheck();
+                    this.citiesData = res.json().list;
+                    this.forecast = utilDisplayWeatherFunction.displayWeatherData(this.citiesData);
+              //  }, 15000);
             })
+            .publish()
+            .refCount()
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 }

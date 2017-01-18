@@ -17,7 +17,7 @@ span.current_weather_image {
     color: #007f8d;
     position: absolute;
     top: 40px;
-    right: 8px;
+    right: 6px;
 }
 
 .wi-day-sunny:before, .wi-day-clear:before {
