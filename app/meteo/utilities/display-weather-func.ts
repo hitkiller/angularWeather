@@ -1,9 +1,8 @@
 import {MeteoData} from './../meteo-data';
 
 export function displayWeatherData(result: MeteoData[]) {
-    let forecast = [];
-    result.forEach((item) => {
-        forecast.push({
+    let forecast = result.map((item) => {
+        return {
             name: item.name,
             temp: item.main.temp,
             humidity: item.main.humidity,
@@ -13,7 +12,7 @@ export function displayWeatherData(result: MeteoData[]) {
             clouds: item.clouds.all,
             description: item.weather[0].description,
             weather: item.weather[0].main
-        })
+        };
     });
     return forecast;
 }

@@ -34,7 +34,7 @@ import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 export class MeteoCitiesComponent implements OnInit {
     errorMessage: string;
     citiesData: MeteoData[];
-    forecast: MeteoData[];
+    forecast: any[];
     private _units = 'metric';
     private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
 
