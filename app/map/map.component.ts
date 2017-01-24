@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AgmCoreModule, MapsAPILoader} from 'angular2-google-maps/core';
-import {Geolocator} from './geolocation.service';
+import {GeolocationService} from './geolocation.service';
 
 @Component({
     selector: 'google-map',
@@ -10,7 +10,7 @@ import {Geolocator} from './geolocation.service';
       </sebm-google-map>
       `,
     styles: ['.sebm-google-map-container { height: 300px; }'],
-    providers: [Geolocator]
+    providers: [GeolocationService]
 })
 
 export class MapComponent implements OnInit {
@@ -18,7 +18,7 @@ export class MapComponent implements OnInit {
     longitude: number;
     err: string;
 
-    constructor(private mapsAPILoader: MapsAPILoader, private geolocationService: Geolocator) {
+    constructor(private mapsAPILoader: MapsAPILoader, private geolocationService: GeolocationService) {
     }
 
     ngOnInit() {

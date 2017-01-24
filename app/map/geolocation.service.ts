@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observer, Observable, BehaviorSubject} from 'rxjs';
 
 @Injectable()
-export class Geolocator {
+export class GeolocationService {
     public getLocation = function getLocation(opts = { enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }): BehaviorSubject<any> {
         let defaultLocation$ = new BehaviorSubject({ latitude: 53, longitude: 27 });
 

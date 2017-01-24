@@ -31,7 +31,7 @@ export interface Weather {
     icon: string;
 }
 
-export interface MeteoData {
+export interface MeteoDataInterface {
     id: number;
     name: string;
     coord: Coord;
