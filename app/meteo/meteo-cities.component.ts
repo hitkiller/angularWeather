@@ -14,7 +14,7 @@ import {
 } from '@angular/http';
 import {FormsModule}   from '@angular/forms';
 import {Observable} from 'rxjs/Rx';
-import {GeolocationService} from '../map/geolocation.service';
+import {GeolocationService} from '../core/geolocation.service';
 
 import {MeteoDataInterface} from './data/meteo-data-interface';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AgmCoreModule, MapsAPILoader} from 'angular2-google-maps/core';
-import {GeolocationService} from './geolocation.service';
+import {GeolocationService} from '../core/geolocation.service';
 
 @Component({
     selector: 'google-map',

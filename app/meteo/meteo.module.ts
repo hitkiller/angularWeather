@@ -9,8 +9,6 @@ import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './utilities/search.pipe';
 
-import {GeolocationService} from '../map/geolocation.service';
-
 @NgModule({
     imports: [
         CommonModule,
@@ -24,7 +22,6 @@ import {GeolocationService} from '../map/geolocation.service';
         TempColorDirective,
         SearchPipe
     ],
-    providers: [GeolocationService],
     exports: [MeteoCitiesComponent]
 })
 
