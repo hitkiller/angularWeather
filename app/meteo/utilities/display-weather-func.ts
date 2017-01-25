@@ -1,6 +1,6 @@
-import {MeteoData} from './../meteo-data';
+import {MeteoDataInterface} from '../data/meteo-data-interface';
 
-export function displayWeatherData(result: MeteoData[]) {
+export function displayWeatherData(result: MeteoDataInterface[]) {
     let forecast = result.map((item) => {
         return {
             name: item.name,
