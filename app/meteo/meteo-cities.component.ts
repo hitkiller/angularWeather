@@ -18,13 +18,14 @@ import {GetMeteoService} from './utilities/get-meteo.service';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './utilities/search.pipe';
+import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 
 @Component({
     selector: 'meteo-cities',
     templateUrl: 'app/meteo/meteo-cities.component.html',
     styleUrls: ['app/meteo/css/meteo-cities.component.css'],
     providers: [GetMeteoService, TempConversionPipe, SearchPipe],
-  //  changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class MeteoCitiesComponent implements OnInit {
@@ -35,18 +36,18 @@ export class MeteoCitiesComponent implements OnInit {
 
     public removeItem(item) {
         this.forecast.splice(this.forecast.indexOf(item), 1);
-        console.log(`this.forecast length: ${this.forecast.length}`);
         return this.forecast = this.forecast.slice();
     }
 
-    constructor(private http: Http, private getMeteoService: GetMeteoService) {
+    constructor(private http: Http, private getMeteoService: GetMeteoService, private cd: ChangeDetectorRef) {
     }
 
     ngOnInit() {
         this.getMeteoService.getMeteo()
-            .subscribe(
-            data => this.getMeteoService.citiesData = data,
-            error => this.errorMessage = <any>error
-            );
+            .subscribe(response => {
+                this.forecast = utilDisplayWeatherFunction.displayWeatherData(response),
+                    this.cd.markForCheck(),
+                    error => this.errorMessage = <any>error;
+            });
     }
 }
