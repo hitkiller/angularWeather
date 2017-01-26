@@ -25,7 +25,7 @@ export class GetMeteoService {
                 .map((res: Response) => res.json().list)
                 .publishReplay(1)
                 .refCount()
-                .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+                .catch((error: any) => Observable.throw(new Error(error.status) || 'Server error'));
         }
         return this._citiesData$;
     }
