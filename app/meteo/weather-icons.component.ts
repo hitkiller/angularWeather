@@ -8,7 +8,7 @@ import * as utilGetTimeFunction from './utilities/get-time-func';
                   <span *ngSwitchCase = "'day'" title="{{icon}}" class='current_weather_image wi-day-{{icon | lowercase}}'></span>
                   <span *ngSwitchCase="'night'" title="{{icon}}" class='current_weather_image wi-night-{{icon | lowercase}}'></span>
                </span>`,
-    styleUrls: ['app/meteo/css/weather-icons-component.css'],
+    styleUrls: ['./css/weather-icons-component.css'],
 })
 
 export class WeatherIconsComponent {

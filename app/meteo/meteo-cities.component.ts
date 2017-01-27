@@ -3,7 +3,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     OnInit,
-    OnChanges,
     AfterContentInit
 } from '@angular/core';
 import {
@@ -22,8 +21,8 @@ import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 
 @Component({
     selector: 'meteo-cities',
-    templateUrl: 'app/meteo/meteo-cities.component.html',
-    styleUrls: ['app/meteo/css/meteo-cities.component.css'],
+    templateUrl: './meteo-cities.component.html',
+    styleUrls: ['./css/meteo-cities.component.css'],
     providers: [GetMeteoService, TempConversionPipe, SearchPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -34,7 +33,7 @@ export class MeteoCitiesComponent implements OnInit {
 
     public isInFavorites: boolean = false;
 
-    public removeItem(item) {
+    public removeItem(item:any) {
         this.forecast.splice(this.forecast.indexOf(item), 1);
         return this.forecast = this.forecast.slice();
     }
@@ -46,8 +45,7 @@ export class MeteoCitiesComponent implements OnInit {
         this.getMeteoService.getMeteo()
             .subscribe(response => {
                 this.forecast = utilDisplayWeatherFunction.displayWeatherData(response),
-                    this.cd.markForCheck(),
-                    error => this.errorMessage = <any>error;
+                    this.cd.markForCheck();
             });
     }
 }
