@@ -1,15 +1,13 @@
+/// <reference path="../../typings/index.d.ts" />
+
 import {Component, OnInit} from '@angular/core';
-import {AgmCoreModule, MapsAPILoader} from 'angular2-google-maps/core';
+
 import {GeolocationService} from '../core/geolocation.service';
 
 @Component({
     selector: 'google-map',
-    template: `
-      <sebm-google-map [latitude]=latitude [longitude]=longitude [zoom]=12>
-        <sebm-google-map-marker [latitude]=latitude [longitude]=longitude></sebm-google-map-marker>
-      </sebm-google-map>
-      `,
-    styles: ['.sebm-google-map-container { height: 300px; }'],
+    template: `<div id="gmap"></div>`,
+    styles: ['#gmap { width:100%; height:380px; }'],
     providers: [GeolocationService]
 })
 
@@ -18,7 +16,7 @@ export class MapComponent implements OnInit {
     longitude: number;
     err: string;
 
-    constructor(private mapsAPILoader: MapsAPILoader, private geolocationService: GeolocationService) {
+    constructor(private geolocationService: GeolocationService) {
     }
 
     ngOnInit() {
@@ -31,5 +29,11 @@ export class MapComponent implements OnInit {
                 this.err = err;
                 console.log(err);
             })
+
+        var map = new google.maps.Map(document.getElementById('gmap'), {
+            zoom: 12,
+            center: {lat: this.latitude, lng: this.longitude},
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
     }
 }

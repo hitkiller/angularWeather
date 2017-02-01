@@ -18,9 +18,14 @@ module.exports = webpackMerge(commonConfig, {
 
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
             mangle: {
                 keep_fnames: true
-            }
+            },
+            compress: {
+                warnings: false,
+            },
+            comments: false
         }),
         new ExtractTextPlugin('[name].[hash].bundle.css'),
         new webpack.DefinePlugin({

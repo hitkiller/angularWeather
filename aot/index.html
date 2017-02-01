@@ -2,14 +2,21 @@
 
 <head>
     <title>Current Weather Report</title>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqihyZkP0kxB44SW-O6WBQI6b-syJyt2Y"></script>
+
+    <script src="shim.min.js"></script>
+    <script src="zone.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqihyZkP0kxB44SW-O6WBQI6b-syJyt2Y&libraries=places"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+        window.module = 'aot';
+    </script>
 </head>
 
 <body style="width: 100%; margin: 0; padding: 0; box-sizing: border-box;">
     <weather-app>Loading...</weather-app>
 </body>
 
+<script src="dist/build.js"></script>
 
 </html>

@@ -100,7 +100,7 @@ span.current_wind_direction {
 
 span.favorite_icon {
     cursor: pointer;
-    background-image: url(../images/svg/favorite-icon.svg);
+    background-image: url('images/favorite-icon.svg');
     width: 20px;
     height: 20px;
     background-size: 100% 100%;
@@ -115,7 +115,7 @@ span.favorite_icon {
 
 span.remove_icon {
     cursor: pointer;
-    background-image: url(../images/svg/remove-icon.svg);
+    background-image: url('images/remove-icon.svg');
     width: 14px;
     height: 14px;
     background-size: 100% 100%;

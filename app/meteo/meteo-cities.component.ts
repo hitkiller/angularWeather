@@ -30,6 +30,7 @@ import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 export class MeteoCitiesComponent implements OnInit {
     errorMessage: string;
     forecast: any[];
+    cityName: string;
 
     public isInFavorites: boolean = false;
 
