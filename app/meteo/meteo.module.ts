@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 import {MeteoCitiesComponent} from "./meteo-cities.component";
 import {WeatherIconsComponent} from "./weather-icons.component";
+import {UserSettingsComponent} from "./user-settings.component";
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './utilities/search.pipe';
@@ -18,6 +19,7 @@ import {SearchPipe} from './utilities/search.pipe';
     declarations: [
         MeteoCitiesComponent,
         WeatherIconsComponent,
+        UserSettingsComponent,
         TempConversionPipe,
         TempColorDirective,
         SearchPipe

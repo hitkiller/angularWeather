@@ -1,0 +1,110 @@
+.settings-container {
+    display: none;
+}
+
+.settings-display-link {
+    text-align: center;
+    text-decoration: underline;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin-bottom: 20px;
+}
+
+.settings-container {
+    padding: 10px;
+    background: #fff;
+    border-bottom: 3px solid #bdbab9;
+    border-right: 1px solid #bdbab9;
+    border-left: 1px solid #bdbab9;
+    border-top: 1px solid #bdbab9;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.1) inset;
+    width: auto;
+    position: relative;
+}
+
+.settings-container, .settings-container h1, .settings-container>div {
+    max-width: 305px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.5em;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    color: #007f8d;
+}
+
+.label-header {
+    font-size: 1em;
+    font-weight: 600;
+    color: #222;
+    font-variant: small-caps;
+    text-transform: none;
+    padding: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 0px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    vertical-align: sub;
+}
+
+input#setName, input#setEmail {
+    width: 100%;
+}
+
+button.btn.btn-default {
+    background: #f05514;
+    border: 0px;
+    padding: 6px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+button:disabled {
+    opacity: 0.2;
+}
+
+.label-option {
+    font-size: 0.9em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    vertical-align: middle;
+}
+
+.display-radio-option {
+    display: inline;
+}
+
+span.remove_icon {
+    cursor: pointer;
+    background-image: url(images/remove-icon.svg);
+    width: 14px;
+    height: 14px;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    opacity: 0.3;
+}
+
+span.remove_icon:hover {
+    opacity: 1;
+}

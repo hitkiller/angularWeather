@@ -1,4 +1,4 @@
-import {MeteoDataInterface} from '../data/meteo-data-interface';
+import {MeteoDataInterface} from '../data/meteo-data.interface';
 
 export function displayWeatherData(result: MeteoDataInterface[]) {
     let forecast = result.map((item) => {

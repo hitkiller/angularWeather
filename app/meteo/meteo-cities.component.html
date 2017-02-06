@@ -1,3 +1,4 @@
+<user-settings></user-settings>
 <div class="city-filter"><input type="text" [(ngModel)]="cityName" placeholder="Search for the location you're interested in..."></div>
 <ul id="cities">
     <li class="city_wrapper" *ngFor="let o of forecast | searchCity:cityName">

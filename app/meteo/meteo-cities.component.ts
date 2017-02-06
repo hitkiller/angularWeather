@@ -11,7 +11,7 @@ import {
     Headers,
     RequestOptions
 } from '@angular/http';
-import {FormsModule}   from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 import {GetMeteoService} from './utilities/get-meteo.service';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
