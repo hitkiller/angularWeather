@@ -5,6 +5,8 @@ export function displayWeatherData(result: MeteoDataInterface[]) {
         return {
             name: item.name,
             temp: item.main.temp,
+            tempmax: item.main.temp_max,
+            tempmin: item.main.temp_min,
             humidity: item.main.humidity,
             wind: item.wind.speed,
             winddir: item.wind.deg,

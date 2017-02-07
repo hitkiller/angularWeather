@@ -1,43 +1,60 @@
-import {Component, Input} from '@angular/core';
-import {FormsModule}   from '@angular/forms';
+import {Component, Input, Output, EventEmitter, AfterContentInit, ViewChild} from '@angular/core';
+import {FormsModule, NgForm}   from '@angular/forms';
 
 import {UserSettings} from './data/user-settings.interface';
 
 @Component({
     selector: 'user-settings',
     templateUrl: './user-settings.component.html',
-    styleUrls: ['./css/user-settings.component.css'],
+    styleUrls: ['./css/user-settings.component.css']
 })
 
-export class UserSettingsComponent {
+export class UserSettingsComponent implements AfterContentInit {
+    @ViewChild('settingsForm') form;
+
+    @Output('setTemp') tempData = new EventEmitter<string>();
+
+    @Output('toggleMaxTemp') maxtData = new EventEmitter<boolean>();
+
+    @Output('toggleMinTemp') mintData = new EventEmitter<boolean>();
+
     public settings: UserSettings;
 
-    citiesNums = [50, 40, 30, 20, 10];
+    setName = 'Default';
 
-    displayOpts = [
-        { value: 'f', display: 'Fahrenheit' },
-        { value: 'c', display: 'Celsius' }
+    setEmail = '';
+
+    setTemps = [
+        { value: 'celsius', display: 'Celsius' },
+        { value: 'fahrenheit', display: 'Fahrenheit' }
     ];
 
-    paramOpts = [
-        { value: 'humidity', display: 'Humidity' },
-        { value: 'clouds', display: 'Clouds' },
-        { value: 'pressure', display: 'Pressure' }
-    ];
+    setOpts = ['max temperature', 'min temperature'];
 
-    ngOnInit() {
+    public changeTemp(temp: string) {
+        this.tempData.emit(temp);
+    }
+
+    public toggleMaxTemp(maxt: boolean) {
+        this.maxtData.emit(maxt);
+    }
+
+    public toggleMinTemp(mint: boolean) {
+        this.mintData.emit(mint);
+    }
+
+    ngAfterContentInit() {
         this.settings = {
-            setName: '',
-            setEmail: '',
-            citiesNums: this.citiesNums[0],
-            displayOpts: this.displayOpts[0].value,
-            paramOpts: [this.paramOpts[1].value]
+            setName: this.setName,
+            setEmail: this.setEmail,
+            setTemp: this.setTemps[0].value,
+            setMaxTemp: false,
+            setMinTemp: false
         }
+        console.log(this.form);
     }
 
-    save(isValid: boolean, f: UserSettings) {
-        if (!isValid) return;
-        console.log(f);
+    onSubmit({ value, valid }: { value: UserSettings, valid: boolean }) {
+        console.log(value, valid);
     }
-
 }

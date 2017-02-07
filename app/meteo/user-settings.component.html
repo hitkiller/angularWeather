@@ -1,53 +1,63 @@
-<div class="settings-display-link">{{setName}} list is displayed * click to change settings *</div>
+<a href="#popup1" class="settings-display-link">{{settings.setName}} list is displayed * click to change settings *</a>
+<div id="popup1" class="overlay">
+    <div class="settings-container">
+        <a class="close" href="#"><span class="remove_icon"></span></a>
 
-<div class="settings-container">
-    <span class="remove_icon"></span>
+        <h1>Customize your settings</h1>
 
-    <h1>Customize your settings</h1>
+        <form #settingsForm="ngForm" (ngSubmit)="onSubmit(settingsForm)">
+            <div class="form-group">
+                <label class="label-header" for="setName">*Settings name:</label>
+                <input type="text" name="setName" #setName="ngModel" [(ngModel)]="settings.setName" value="{{settings.setName}}" class="form-control" minlength="2" required>
+                <span *ngIf="setName.errors?.required && setName.touched" class="error">Name is required</span>
+                <span *ngIf="setName.errors?.minlength && setName.touched" class="error">Minimum 2 characters is needed</span>
+            </div>
 
-    <form>
-        <div class="form-group">
-            <label class="label-header" for="setName">*Settings name:</label>
-            <input type="text" class="form-control" name="setName" id="setName" required>
-        </div>
+            <div class="form-group">
+                <label class="label-header" for="setEmail">Enter e-mail to subscribe:</label>
+                <input type="email" name="setEmail" #setEmail="ngModel" minlength="2" [(ngModel)]="settings.setEmail" class="form-control">
+                <span [hidden]="setEmail.valid || setEmail.pristine" class="error">E-mail is not valid</span>
+            </div>
 
-        <div class="form-group">
-            <label class="label-header" for="setEmail">*Enter e-mail:</label>
-            <input type="email" class="form-control" name="setEmail" id="setEmail" required>
-        </div>
-
-
-        <div class="form-group">
-            <label class="label-header" for="power">Cities number:</label>
-            <select class="form-control" id="citiesNum">
-                      <option *ngFor="let citiesNum of citiesNums" [value]="citiesNum">{{citiesNum}}</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="label-header" for="displayOpts">Display temp:</label>
-            <div *ngFor="let displayOpt of displayOpts" class="display-radio-option">
-                <label class="label-option">
+            <div class="form-group">
+                <label class="label-header" for="setTemps">Display temp:</label>
+                <div *ngFor="let setTemp of setTemps" class="display-radio-option">
+                    <label class="label-option">
                     <input type="radio"
-                           name="displayOpts"
-                           value="displayOpt.value"/>
-                    {{displayOpt.display}}
+                           name="setTemps"
+                           [disabled]="setName.invalid"
+                           [(ngModel)]="settings.setTemp"
+                           (ngModelChange)="changeTemp($event)"
+                           value="{{setTemp.value}}"/>
+                    {{setTemp.display}}
                 </label>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label class="label-header" for="paramOpts">Extra parameters to display:</label>
-            <div *ngFor="let paramOpt of paramOpts">
-                <label class="label-option">
-                    <input type="checkbox"
-                           name="paramOpts"
-                           value="{{paramOpt.value}}"/>
-                    {{paramOpt.display}}
+            <div class="form-group">
+                <label class="label-header" for="setOpts">Extra temp parameters:</label>
+                <div>
+                    <label class="label-option">
+                      <input type="checkbox"
+                             name="setMaxTemp"
+                             [disabled]="setName.invalid"
+                             [(ngModel)]="settings.setMaxTemp"
+                             (ngModelChange)="toggleMaxTemp($event)" />
+                      {{setOpts[0]}}
                 </label>
+                </div>
+                <div>
+                    <label class="label-option">
+                  <input type="checkbox"
+                         name="setMinTemp"
+                         [disabled]="setName.invalid"
+                         [(ngModel)]="settings.setMinTemp"
+                         (ngModelChange)="toggleMinTemp($event)" />
+                  {{setOpts[1]}}
+               </label>
+                </div>
             </div>
-        </div>
-
-        <button type="submit" (click)="save(f.value, f.valid)" class="btn btn-default">Submit</button>
-    </form>
+          <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-default"><a href="#">Ok, that's fine</a></button>
+        </form>
+    </div>
 </div>

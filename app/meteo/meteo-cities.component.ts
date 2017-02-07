@@ -3,7 +3,8 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     OnInit,
-    AfterContentInit
+    Input,
+    EventEmitter
 } from '@angular/core';
 import {
     Http,
@@ -18,6 +19,7 @@ import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
 import {SearchPipe} from './utilities/search.pipe';
 import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
+import {UserSettingsComponent} from "./user-settings.component";
 
 @Component({
     selector: 'meteo-cities',
@@ -32,9 +34,25 @@ export class MeteoCitiesComponent implements OnInit {
     forecast: any[];
     cityName: string;
 
+    userSetTemp: string = 'celsius';
+    userOptMaxTemp: boolean = false;
+    userOptMinTemp: boolean = false;
+
+    public tempEvent(setTemp: string) {
+        this.userSetTemp = setTemp;
+    }
+
+    public maxTempEvent(setMaxTemp: boolean) {
+        this.userOptMaxTemp = setMaxTemp;
+    }
+
+    public minTempEvent(setMinTemp: boolean) {
+        this.userOptMinTemp = setMinTemp;
+    }
+
     public isInFavorites: boolean = false;
 
-    public removeItem(item:any) {
+    public removeItem(item: any) {
         this.forecast.splice(this.forecast.indexOf(item), 1);
         return this.forecast = this.forecast.slice();
     }

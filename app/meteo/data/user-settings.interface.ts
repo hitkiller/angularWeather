@@ -1,7 +1,8 @@
 export interface UserSettings {
-  setName: string;
-  setEmail: string;
-  citiesNums?: number;
-  displayOpts?: string;
-  paramOpts?: string[];
+    setName: string;
+    setEmail?: string;
+    setTemp?: string;
+    setOpts?: string[];
+    setMaxTemp?: boolean;
+    setMinTemp?: boolean;
 }

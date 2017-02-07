@@ -1,5 +1,28 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: opacity 100ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 999;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
 .settings-container {
-    display: none;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
 }
 
 .settings-display-link {
@@ -7,6 +30,9 @@
     text-decoration: underline;
     font-family: Georgia, "Times New Roman", Times, serif;
     margin-bottom: 20px;
+    color: black;
+    display: inline-block;
+    width: 100%;
 }
 
 .settings-container {
@@ -61,7 +87,7 @@ input[type="radio"], input[type="checkbox"] {
     vertical-align: sub;
 }
 
-input#setName, input#setEmail {
+input[type="text"], input[type="email"] {
     width: 100%;
 }
 
@@ -77,8 +103,18 @@ button.btn.btn-default {
     bottom: 10px;
 }
 
+button:hover {
+    -webkit-filter: saturate(8);
+    filter: saturate(8);
+}
+
 button:disabled {
     opacity: 0.2;
+}
+
+button a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .label-option {
@@ -107,4 +143,10 @@ span.remove_icon {
 
 span.remove_icon:hover {
     opacity: 1;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    line-height: 1.5em;
 }
