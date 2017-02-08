@@ -6,8 +6,9 @@ import {FormsModule} from '@angular/forms';
 import {MeteoCitiesComponent} from "./meteo-cities.component";
 import {WeatherIconsComponent} from "./weather-icons.component";
 import {UserSettingsComponent} from "./user-settings.component";
+import {EmailValidatorDirective} from './utilities/email-validator.directive';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
-import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
+import {TempColorDirective} from './utilities/temp-color-conversion.directive';
 import {SearchPipe} from './utilities/search.pipe';
 
 @NgModule({
@@ -22,6 +23,7 @@ import {SearchPipe} from './utilities/search.pipe';
         UserSettingsComponent,
         TempConversionPipe,
         TempColorDirective,
+        EmailValidatorDirective,
         SearchPipe
     ],
     exports: [MeteoCitiesComponent]

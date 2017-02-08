@@ -16,7 +16,7 @@ import {FormsModule} from '@angular/forms';
 
 import {GetMeteoService} from './utilities/get-meteo.service';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
-import {TempColorDirective} from './utilities/temp-color-conversion.directiive';
+import {TempColorDirective} from './utilities/temp-color-conversion.directive';
 import {SearchPipe} from './utilities/search.pipe';
 import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 import {UserSettingsComponent} from "./user-settings.component";

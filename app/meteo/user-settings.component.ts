@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter, AfterContentInit, ViewChild} fro
 import {FormsModule, NgForm}   from '@angular/forms';
 
 import {UserSettings} from './data/user-settings.interface';
+import {EmailValidatorDirective} from './utilities/email-validator.directive';
 
 @Component({
     selector: 'user-settings',
@@ -13,9 +14,7 @@ export class UserSettingsComponent implements AfterContentInit {
     @ViewChild('settingsForm') form;
 
     @Output('setTemp') tempData = new EventEmitter<string>();
-
     @Output('toggleMaxTemp') maxtData = new EventEmitter<boolean>();
-
     @Output('toggleMinTemp') mintData = new EventEmitter<boolean>();
 
     public settings: UserSettings;
