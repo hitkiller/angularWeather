@@ -14,10 +14,10 @@ span.current_weather_image {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 3em;
-    color: #007f8d;
     position: absolute;
     top: 40px;
     right: 6px;
+    color: inherit;
 }
 
 .wi-day-sunny:before, .wi-day-clear:before {

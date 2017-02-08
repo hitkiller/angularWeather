@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, AfterContentInit, ViewChild} from '@angular/core';
+import {Component, Input, Output, EventEmitter, AfterContentInit} from '@angular/core';
 import {FormsModule, NgForm}   from '@angular/forms';
 
 import {UserSettings} from './data/user-settings.interface';
@@ -11,8 +11,6 @@ import {EmailValidatorDirective} from './utilities/email-validator.directive';
 })
 
 export class UserSettingsComponent implements AfterContentInit {
-    @ViewChild('settingsForm') form;
-
     @Output('setTemp') tempData = new EventEmitter<string>();
     @Output('toggleMaxTemp') maxtData = new EventEmitter<boolean>();
     @Output('toggleMinTemp') mintData = new EventEmitter<boolean>();
@@ -50,7 +48,6 @@ export class UserSettingsComponent implements AfterContentInit {
             setMaxTemp: false,
             setMinTemp: false
         }
-        console.log(this.form);
     }
 
     onSubmit({ value, valid }: { value: UserSettings, valid: boolean }) {

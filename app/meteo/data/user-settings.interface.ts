@@ -1,5 +1,5 @@
 export interface UserSettings {
-    setName: string;
+    setName?: string;
     setEmail?: string;
     setTemp?: string;
     setOpts?: string[];

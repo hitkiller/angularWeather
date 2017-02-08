@@ -20,6 +20,7 @@ import {TempColorDirective} from './utilities/temp-color-conversion.directive';
 import {SearchPipe} from './utilities/search.pipe';
 import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 import {UserSettingsComponent} from "./user-settings.component";
+import {SwitchThemeComponent} from "./switch-theme.component";
 
 @Component({
     selector: 'meteo-cities',
@@ -33,6 +34,8 @@ export class MeteoCitiesComponent implements OnInit {
     errorMessage: string;
     forecast: any[];
     cityName: string;
+
+    value: boolean = false;
 
     userSetTemp: string = 'celsius';
     userOptMaxTemp: boolean = false;

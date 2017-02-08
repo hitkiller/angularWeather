@@ -9,13 +9,20 @@
             <div class="form-group">
                 <label class="label-header" for="setName">*Settings name:</label>
                 <input type="text" name="setName" #setName="ngModel" [(ngModel)]="settings.setName" value="{{settings.setName}}" class="form-control" minlength="2" required>
-                <span *ngIf="setName.errors?.required && setName.touched" class="error">Name is required</span>
-                <span *ngIf="setName.errors?.minlength && setName.touched" class="error">Minimum 2 characters needed</span>
+
+                <div *ngIf="setName.errors && (setName.dirty || setName.touched)" class="error">
+                    <div [hidden]="!setName.errors['required']">
+                        Name is required
+                    </div>
+                    <div [hidden]="!setName.errors['minlength']">
+                        Name must be at least 2 characters long
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
-                <label class="label-header" for="setEmail">Enter e-mail to subscribe:</label>
-                <input type="email" name="setEmail" #setEmail="ngModel" minlength="2" [(ngModel)]="settings.setEmail" class="form-control" validateEmail>
+                <label class="label-header" for="setEmail">*Enter e-mail to subscribe:</label>
+                <input type="email" name="setEmail" #setEmail="ngModel" [(ngModel)]="settings.setEmail" class="form-control" validateEmail>
                 <span [hidden]="setEmail.valid || setEmail.pristine" class="error">E-mail is not valid</span>
             </div>
 
@@ -57,7 +64,7 @@
                </label>
                 </div>
             </div>
-          <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-default"><a href="#">Ok, that's fine</a></button>
+            <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-default"><a href="#">Ok, that's fine</a></button>
         </form>
     </div>
 </div>
