@@ -1,8 +1,8 @@
-import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {Component, Input, forwardRef} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-    selector: 'app-switch',
+    selector: 'switch-theme',
     templateUrl: './switch-theme.component.html',
     styleUrls: ['./css/switch-theme.component.css'],
     providers: [

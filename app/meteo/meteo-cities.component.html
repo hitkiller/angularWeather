@@ -1,4 +1,4 @@
-<app-switch [(ngModel)]="value" [label]="'Switch Theme'"></app-switch>
+<switch-theme [(ngModel)]="value" [label]="'Switch Theme'"></switch-theme>
 <user-settings (setTemp)='tempEvent($event)' (toggleMaxTemp)='maxTempEvent($event)' (toggleMinTemp)='minTempEvent($event)'></user-settings>
 <div class="city-filter"><input type="text" [(ngModel)]="cityName" placeholder="Search for the location you're interested in..."></div>
 <ul id="cities" [ngClass]="{'dark': value == true }">
