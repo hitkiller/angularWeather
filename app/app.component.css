@@ -1,0 +1,28 @@
+:host {
+    font-family: helvetica, arial, sans-serif;
+    box-sizing: border-box;
+    background: #f7f6f5;
+    padding: 5px;
+    display: block;
+}
+
+nav {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+}
+
+a {
+    background: #007f8d;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+a.active {
+    background: #00afbe;
+}

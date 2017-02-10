@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
                 console.log(err);
             })
 
-        var map = new google.maps.Map(document.getElementById('gmap'), {
+        let map = new google.maps.Map(document.getElementById('gmap'), {
             zoom: 12,
             center: {lat: this.latitude, lng: this.longitude},
             mapTypeId: google.maps.MapTypeId.ROADMAP

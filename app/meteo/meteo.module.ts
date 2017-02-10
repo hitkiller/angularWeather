@@ -3,7 +3,9 @@ import {HttpModule} from '@angular/http';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
+import {MeteoRoutingModule} from "./meteo-routing.module";
 import {MeteoCitiesComponent} from "./meteo-cities.component";
+import {MeteoCityDetailComponent} from "./meteo-city-detail.component";
 import {WeatherIconsComponent} from "./weather-icons.component";
 import {UserSettingsComponent} from "./user-settings.component";
 import {SwitchThemeComponent} from "./switch-theme.component";
@@ -16,10 +18,12 @@ import {SearchPipe} from './utilities/search.pipe';
     imports: [
         CommonModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        MeteoRoutingModule
     ],
     declarations: [
         MeteoCitiesComponent,
+        MeteoCityDetailComponent,
         WeatherIconsComponent,
         UserSettingsComponent,
         SwitchThemeComponent,

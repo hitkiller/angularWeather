@@ -13,6 +13,7 @@ import {
     RequestOptions
 } from '@angular/http';
 import {FormsModule} from '@angular/forms';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import {GetMeteoService} from './utilities/get-meteo.service';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';

@@ -24,11 +24,10 @@
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
-  background: #ccc;
+  background: #00afbe;
   border-radius: 4px;
   transition: 0.15s ease-out;
   transition-property: opacity background;
-  color: #2d2d2d;
   font-variant: small-caps;
   text-transform: none;
 }
@@ -44,7 +43,7 @@
 .switch-label::before {
   content: attr(data-off);
   right: 11px;
-  color: #222;
+  color: #fff;
 }
 
 .switch-label::after {

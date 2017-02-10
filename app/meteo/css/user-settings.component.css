@@ -16,15 +16,6 @@
     opacity: 1;
 }
 
-.settings-container {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    top: 150px;
-}
-
 .settings-display-link {
     text-align: center;
     text-decoration: underline;
@@ -46,6 +37,8 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.1) inset;
     width: auto;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .settings-container, .settings-container h1, .settings-container>div {

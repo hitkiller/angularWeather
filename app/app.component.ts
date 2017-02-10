@@ -4,18 +4,14 @@ import {Component} from '@angular/core';
     selector: 'weather-app',
     template: `
     <header-panel></header-panel>
-    <meteo-cities></meteo-cities>
-    <google-map></google-map>
+    <nav>
+      <a routerLink="/meteo" routerLinkActive="active">Meteo Cities</a>
+      <a routerLink="/map" routerLinkActive="active">Current location map</a>
+    </nav>
+    <router-outlet></router-outlet>
     <footer-panel></footer-panel>
     `,
-    styles: [`
-        :host {
-         font-family: helvetica,arial,sans-serif;
-         box-sizing: border-box;
-         background: #f7f6f5;
-         padding: 5px;
-         display:block;
-     }`]
+    styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent {
