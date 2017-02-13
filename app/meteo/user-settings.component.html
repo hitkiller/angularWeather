@@ -1,6 +1,7 @@
-<a class="settings-display-link">{{settings.setName}} list is displayed * click to change settings *</a>
-    <div class="settings-container">
-        <a class="close" href="#"><span class="remove_icon"></span></a>
+<div class="popup-wrapper">
+    <input type="checkbox" class="popup-checkbox" id="popupCheckboxOne">
+    <div class="popup settings-container">
+        <label for="popupCheckboxOne" class="popup-closer"><span class="remove_icon"></span></label>
 
         <h1>Customize your settings</h1>
 
@@ -63,6 +64,9 @@
                </label>
                 </div>
             </div>
-            <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-default"><a href="#">Ok, that's fine</a></button>
+            <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-default"><span>Invalid form</span><label for="popupCheckboxOne" class="popup-closer">Ok, that's fine</label></button>
         </form>
     </div>
+    <div class="overlay"></div>
+</div>
+<label for="popupCheckboxOne" class="popup-shower"><a class="settings-display-link">{{settings.setName}} list is displayed * click to change settings *</a></label>

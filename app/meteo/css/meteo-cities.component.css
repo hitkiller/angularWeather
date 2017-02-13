@@ -93,6 +93,7 @@ span.current_location {
     font-size: 0.8em;
     font-weight: 700;
     margin-bottom: 10px;
+    max-width: 130px;
 }
 
 #cities.dark span.current_location {
