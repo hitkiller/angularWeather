@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 130px;
+  width: 150px;
   height: 30px;
   padding: 3px;
   background-color: none;
@@ -79,6 +79,6 @@
 }
 
 .checked .switch-handle {
-  left: 105px;
+  left: 125px;
   box-shadow: -1px 1px 5px rgba(45, 45, 45, 0.41);
 }

@@ -6,7 +6,7 @@ import {MeteoCityDetailComponent} from "./meteo-city-detail.component";
 
 const meteoCitiesRoutes: Routes = [
     { path: '', component: MeteoCitiesComponent },
-    { path: 'meteo-city/:id', component: MeteoCityDetailComponent }
+    { path: 'city/:id', component: MeteoCityDetailComponent }
 ];
 
 @NgModule({

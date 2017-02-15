@@ -6,12 +6,6 @@ import {
     Input,
     EventEmitter
 } from '@angular/core';
-import {
-    Http,
-    Response,
-    Headers,
-    RequestOptions
-} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
@@ -61,8 +55,12 @@ export class MeteoCitiesComponent implements OnInit {
         return this.forecast = this.forecast.slice();
     }
 
-    constructor(private http: Http, private getMeteoService: GetMeteoService, private cd: ChangeDetectorRef) {
-    }
+    constructor(
+        private getMeteoService: GetMeteoService,
+        private cd: ChangeDetectorRef,
+        private route: ActivatedRoute,
+        private router: Router
+    ) { }
 
     ngOnInit() {
         this.getMeteoService.getMeteo()
@@ -70,5 +68,9 @@ export class MeteoCitiesComponent implements OnInit {
                 this.forecast = utilDisplayWeatherFunction.displayWeatherData(response),
                     this.cd.markForCheck();
             });
+    }
+
+    onSelect(item: any) {
+        this.router.navigate(['meteo/city', item.id]);
     }
 }

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'header-panel',
-    template: `<h1>Here's how the weather for your location looks like (50 cities and towns around you)</h1>`,
+    template: `<h1>Here's how the weather for your location looks like</h1>`,
     styles: [`
          h1 {
           font-family: Georgia, "Times New Roman", Times, serif;

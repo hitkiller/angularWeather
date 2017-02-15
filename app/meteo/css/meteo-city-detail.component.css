@@ -1,0 +1,76 @@
+:host {
+    min-height: 550px;
+}
+
+button.btn.btn-default {
+    background: #f05514;
+    border: 0px;
+    padding: 6px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+}
+
+button:hover {
+    -webkit-filter: saturate(8);
+    filter: saturate(8);
+}
+
+button:disabled {
+    opacity: 0.2;
+}
+
+.forecast_city_bg {
+    min-width: 200px;
+    max-width: 720px;
+    height: 509px;
+    overflow: hidden;
+    background-image: url('images/forecast-baba.jpg');
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    padding-top: 25px;
+    margin-top: 20px;
+    left: 0;
+    right: 0;
+}
+
+p {
+    text-align: right;
+    display: block;
+    font-size: 1.1em;
+    line-height: 1.1em;
+    font-variant: small-caps;
+    text-transform: none;
+    color: #1f384d;
+    font-weight: 600;
+}
+
+p span:not(.current_temp) {
+    padding: 6px 20px 6px 80px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+}
+
+span.current_temp {
+    background: rgba(255, 255, 255, 1);
+    padding: 6px 0px;
+}
+
+div.current_weather_icons {
+    color: white;
+    font-size: 5em;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(59, 100, 130, 0.1);
+    border-radius: 50%;
+    width: 100px;
+    height: 95px;
+    text-align: center;
+    padding-top: 10px;
+}

@@ -3,6 +3,7 @@ import {MeteoDataInterface} from '../data/meteo-data.interface';
 export function displayWeatherData(result: MeteoDataInterface[]) {
     let forecast = result.map((item) => {
         return {
+            id: item.id,
             name: item.name,
             temp: item.main.temp,
             tempmax: item.main.temp_max,

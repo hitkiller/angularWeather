@@ -94,6 +94,11 @@ span.current_location {
     font-weight: 700;
     margin-bottom: 10px;
     max-width: 130px;
+    cursor: pointer;
+}
+
+span.current_location:hover {
+  filter: invert(30%);
 }
 
 #cities.dark span.current_location {
@@ -123,6 +128,10 @@ span.current_wind_direction {
 
 span.current_weather_icons_color {
     color: #007f8d;
+    font-size: 3em;
+    position: absolute;
+    top: 40px;
+    right: 6px;
 }
 
 #cities.dark span.current_weather_icons_color {

@@ -1,36 +1,40 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
+import {slideInDownAnimation} from '../animations';
+
 import {GetMeteoService} from './utilities/get-meteo.service';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directive';
-import * as utilDisplayWeatherFunction from './utilities/display-weather-func';
 
 @Component({
     selector: 'meteo-city-detail',
-    template: `
-<h2>here will be city details</h2>
-<div *ngIf="city">
-  <div>
-  <div>
-    <label>Name: </label>
-  </div>
-  <p>
-    <button>Back</button>
-  </p>
-</div>
-`,
-    styleUrls: ['./css/meteo-cities.component.css'],
+    templateUrl: './meteo-city-detail.component.html',
+    animations: [slideInDownAnimation],
+    styleUrls: ['./css/meteo-city-detail.component.css'],
     providers: [GetMeteoService, TempConversionPipe],
 })
 
-export class MeteoCityDetailComponent {
+export class MeteoCityDetailComponent implements OnInit {
+    @HostBinding('@routeAnimation') routeAnimation = true;
+    @HostBinding('style.display') display = 'block';
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private service: GetMeteoService
-  ) {}
+    city: any;
 
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private getMeteoService: GetMeteoService
+    ) { }
 
+    ngOnInit() {
+        this.route.params
+            .switchMap((params: Params) => this.getMeteoService.getCity(+params['id']))
+            .subscribe((city: any) => this.city = city);
+    }
+
+    gotoMeteo() {
+        let cityId = this.city ? this.city.id : null;
+        this.router.navigate(['/meteo', { id: cityId }]);
+    }
 }

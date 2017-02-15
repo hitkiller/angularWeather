@@ -1,0 +1,27 @@
+<div class="forecast_city_bg">
+    <div *ngIf="city">
+        <p><span>Name: {{city.name}}</span></p>
+        <p><span>Location: {{city.coord.lon}}, {{city.coord.lat}}</span></p>
+        <p><span>Sea level: {{city.main.sea_level}}</span></p>
+        <p><span>Ground level: {{city.main.grnd_level}}</span></p>
+        <p>
+            <span class="current_temp">
+              <span bgColor={{city.main.temp}}>{{city.main.temp | number : '1.0-1'}}&deg;C</span>
+              <span bgColor={{city.main.temp}}>{{city.main.temp | tempToFahrenheit:celsius | number : '1.0-1'}}&deg;F</span>
+            </span>
+        </p>
+        <p><span>Temp min: {{city.main.temp_min}}</span></p>
+        <p><span>Temp max: {{city.main.temp_max}}</span></p>
+        <p><span>Pressure: {{city.main.pressure}} hPa</span></p>
+        <p><span>Humidity: {{city.main.humidity}}%</span></p>
+        <p><span>Wind: {{city.wind.speed}} m/s</span></p>
+        <p><span>Weather description: {{city.weather[0].description}}</span></p>
+        <div class='current_weather_icons'><current-weather-icons weather={{city.weather[0].main}}></current-weather-icons></div>
+    </div>
+    <div *ngIf="!city">
+        <p><span>Sorry, something got wrong</span></p>
+        <p><span>I don't know anything about the weather</span></p>
+        <p><span>I'm just standing here</span></p>
+    </div>
+</div>
+<button class="btn btn-default" (click)="gotoMeteo()">Back to the cities list</button>

@@ -125,11 +125,6 @@ button:disabled {
     opacity: 0.2;
 }
 
-button a {
-    color: inherit;
-    text-decoration: none;
-}
-
 .label-option {
     font-size: 0.9em;
     font-family: Georgia, "Times New Roman", Times, serif;

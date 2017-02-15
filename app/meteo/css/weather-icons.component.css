@@ -13,10 +13,6 @@ span.current_weather_image {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 3em;
-    position: absolute;
-    top: 40px;
-    right: 6px;
     color: inherit;
 }
 

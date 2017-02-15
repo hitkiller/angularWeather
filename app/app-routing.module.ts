@@ -6,11 +6,11 @@ import {PageNotFoundComponent } from './not-found.component';
 const appRoutes: Routes = [
     {
         path: 'map',
-        loadChildren: './map/map.module#MapModule'
+        loadChildren: './map/map.module#MapModule?sync=true'
     },
     {
         path: 'meteo',
-        loadChildren: './meteo/meteo.module#MeteoModule'
+        loadChildren: './meteo/meteo.module#MeteoModule?sync=true'
     },
     { path: '', redirectTo: '/meteo', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
