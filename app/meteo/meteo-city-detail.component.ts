@@ -34,7 +34,6 @@ export class MeteoCityDetailComponent implements OnInit {
     }
 
     gotoMeteo() {
-        let cityId = this.city ? this.city.id : null;
-        this.router.navigate(['/meteo', { id: cityId }]);
+        this.router.navigate(['/meteo']);
     }
 }

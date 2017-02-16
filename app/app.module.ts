@@ -13,10 +13,10 @@ import {AppComponent} from './app.component';
 @NgModule({
     imports: [
         BrowserModule,
-        AppRoutingModule,
         MapModule,
         MeteoModule,
-        CoreModule
+        CoreModule,
+        AppRoutingModule
     ],
     declarations: [AppComponent, PageNotFoundComponent],
     bootstrap: [AppComponent]
