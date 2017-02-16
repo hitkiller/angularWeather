@@ -3,7 +3,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 import {slideInDownAnimation} from '../animations';
 
-import {GetMeteoService} from './utilities/get-meteo.service';
 import {TempConversionPipe} from './utilities/temp-measure-conversion.pipe';
 import {TempColorDirective} from './utilities/temp-color-conversion.directive';
 
