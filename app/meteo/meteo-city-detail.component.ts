@@ -1,5 +1,5 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {slideInDownAnimation} from '../animations';
 
@@ -12,7 +12,7 @@ import {TempColorDirective} from './utilities/temp-color-conversion.directive';
     templateUrl: './meteo-city-detail.component.html',
     animations: [slideInDownAnimation],
     styleUrls: ['./css/meteo-city-detail.component.css'],
-    providers: [GetMeteoService, TempConversionPipe],
+    providers: [TempConversionPipe],
 })
 
 export class MeteoCityDetailComponent implements OnInit {
@@ -23,14 +23,14 @@ export class MeteoCityDetailComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private router: Router,
-        private getMeteoService: GetMeteoService
+        private router: Router
     ) { }
 
     ngOnInit() {
-        this.route.params
-            .switchMap((params: Params) => this.getMeteoService.getCity(+params['id']))
-            .subscribe((city: any) => this.city = city);
+        this.route.data
+            .subscribe((data: { city: any }) => {
+                this.city = data.city;
+            });
     }
 
     gotoMeteo() {

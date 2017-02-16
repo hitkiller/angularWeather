@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router, Resolve, ActivatedRouteSnapshot} from '@angular/router';
+import {Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
 import {Observable} from 'rxjs/Rx';
 import {GetMeteoService} from './get-meteo.service';
 
@@ -10,7 +10,7 @@ export class MeteoCityDetailResolverService implements Resolve<any> {
         private router: Router
     ) { }
 
-    resolve(route: ActivatedRouteSnapshot): Observable<any> | any {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | any {
         let id = +route.params['id'];
         return this.getMeteoService.getCity(id).map(city => {
             if (city) return city;
