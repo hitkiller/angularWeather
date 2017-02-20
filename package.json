@@ -4,12 +4,14 @@
   "description": "Angular 2, TypeScript and Webpack",
   "scripts": {
     "postinstall": "typings install",
-    "start": "webpack-dev-server --inline --progress --port 8080",
+    "start": "webpack-dev-server --hot --inline --port 8080",
     "test": "karma start",
-    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
     "lite:aot": "lite-server -c aot/bs-config.json",
-    "prodbuild:jit": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "devbuild:jit": "webpack --config config/webpack.dev.js"
+    "ngc": "ngc -p ./tsconfig-aot.json",
+    "webpack-dev": "set NODE_ENV=development && webpack",
+    "webpack-production": "ngc -p tsconfig-aot.json && set NODE_ENV=production && webpack",
+    "build-dev": "npm run webpack-dev",
+    "build-production": "npm run ngc && npm run webpack-production"
   },
   "license": "ISC",
   "dependencies": {
@@ -29,9 +31,10 @@
     "zone.js": "^0.7.4"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.5.35",
+    "@types/jasmine": "2.5.41",
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^3.0.0-beta.18",
+    "clean-webpack-plugin": "^0.1.15",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "2.0.0-beta.5",

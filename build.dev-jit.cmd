@@ -1,2 +1,2 @@
-call npm run devbuild:jit
+call npm run build-dev
 call npm run start
