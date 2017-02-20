@@ -5,27 +5,26 @@ import {MeteoCitiesComponent} from "./meteo-cities.component";
 import {MeteoCityDetailComponent} from "./meteo-city-detail.component";
 import {MeteoCityDetailResolverService} from "./utilities/meteo-city-detail-resolver.service"
 
-const meteoCitiesRoutes: Routes = [
-    { path: '', component: MeteoCitiesComponent },
+export const MeteoRoutes: Routes = [
     {
-        path: 'city/:id',
-        component: MeteoCityDetailComponent,
-        resolve: {
-            city: MeteoCityDetailResolverService
-        }
+        path: '',
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'meteo',
+            },
+            {
+                path: 'meteo',
+                component: MeteoCitiesComponent
+            },
+            {
+                path: 'city/:id',
+                component: MeteoCityDetailComponent,
+                resolve: {
+                    city: MeteoCityDetailResolverService
+                }
+            }
+        ]
     }
 ];
-
-@NgModule({
-    imports: [
-        RouterModule.forChild(meteoCitiesRoutes)
-    ],
-    exports: [
-        RouterModule
-    ],
-    providers: [
-        MeteoCityDetailResolverService
-    ]
-})
-
-export class MeteoRoutingModule { }

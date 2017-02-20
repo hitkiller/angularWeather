@@ -3,20 +3,19 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {MapComponent} from "./map.component";
 
-const mapRoutes: Routes = [
-  {
-    path: '',
-    component: MapComponent
-  }
+export const MapRoutes: Routes = [
+    {
+        path: '',
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'map',
+            },
+            {
+                path: 'map',
+                component: MapComponent
+            }
+        ]
+    }
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forChild(mapRoutes)
-  ],
-  exports: [
-    RouterModule
-  ]
-})
-
-export class MapRoutingModule { }

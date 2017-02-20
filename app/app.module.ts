@@ -7,16 +7,16 @@ import {MapModule} from './map/map.module';
 import {MeteoModule} from './meteo/meteo.module';
 import {PageNotFoundComponent}   from './not-found.component';
 
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutes} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 @NgModule({
     imports: [
-        BrowserModule,
-        MapModule,
-        MeteoModule,
+        RouterModule.forRoot(AppRoutes),
         CoreModule,
-        AppRoutingModule
+        BrowserModule,
+        MeteoModule,
+        MapModule
     ],
     declarations: [AppComponent, PageNotFoundComponent],
     bootstrap: [AppComponent]

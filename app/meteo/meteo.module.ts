@@ -2,8 +2,9 @@ import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 
-import {MeteoRoutingModule} from "./meteo-routing.module";
+import {MeteoRoutes} from "./meteo-routing.module";
 import {MeteoCitiesComponent} from "./meteo-cities.component";
 import {MeteoCityDetailComponent} from "./meteo-city-detail.component";
 import {WeatherIconsComponent} from "./weather-icons.component";
@@ -18,10 +19,10 @@ import {SearchPipe} from './utilities/search.pipe';
 
 @NgModule({
     imports: [
+        RouterModule.forChild(MeteoRoutes),
         CommonModule,
         FormsModule,
-        HttpModule,
-        MeteoRoutingModule
+        HttpModule
     ],
     declarations: [
         MeteoCitiesComponent,
