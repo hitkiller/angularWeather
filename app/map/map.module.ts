@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
-import {MapRoutes} from "./map-routing.module";
+import {MapRoutes} from "./map-routing.config";
 import {MapComponent} from "./map.component";
 
 @NgModule({

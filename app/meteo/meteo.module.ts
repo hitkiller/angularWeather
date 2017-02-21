@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
-import {MeteoRoutes} from "./meteo-routing.module";
+import {MeteoRoutes} from "./meteo-routing.config";
 import {MeteoCitiesComponent} from "./meteo-cities.component";
 import {MeteoCityDetailComponent} from "./meteo-city-detail.component";
 import {WeatherIconsComponent} from "./weather-icons.component";
