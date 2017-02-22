@@ -27,3 +27,7 @@ a {
 a.active {
     background: #00afbe;
 }
+
+a.active:last-child {
+    background: #f05514;
+}

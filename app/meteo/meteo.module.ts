@@ -39,7 +39,11 @@ import {SearchPipe} from './utilities/search.pipe';
         GetMeteoService,
         MeteoCityDetailResolverService
     ],
-    exports: [MeteoCitiesComponent]
+    exports: [
+      MeteoCitiesComponent,
+      TempConversionPipe,
+      TempColorDirective
+    ]
 })
 
 export class MeteoModule {
