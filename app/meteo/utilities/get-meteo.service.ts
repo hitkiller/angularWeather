@@ -3,7 +3,8 @@ import {
     Http,
     Response,
     Headers,
-    RequestOptions
+    RequestOptions,
+    URLSearchParams
 } from '@angular/http';
 import {Observer, Observable, BehaviorSubject} from 'rxjs';
 
@@ -11,8 +12,6 @@ import {GeolocationService} from '../../core/geolocation.service';
 
 @Injectable()
 export class GetMeteoService {
-    private _units = 'metric';
-    private _APPID = '47bc4e43962dbb173c1a3a7b2d5d0aa9';
     _citiesData$: Observable<any> = null;
     _city$: Observable<any>;
 
@@ -20,9 +19,18 @@ export class GetMeteoService {
     }
 
     getMeteo() {
+        const params = new URLSearchParams()
+        params.append('cnt', '50')
+        params.append('units', 'metric')
+        params.append('APPID', '47bc4e43962dbb173c1a3a7b2d5d0aa9')
+
+        const headers = new Headers({ 'Accept': 'application/json' });
+
+        const options = new RequestOptions({ headers: headers, search: params });
+
         if (!this._citiesData$) {
             this._citiesData$ = this.geolocationService.getLocation()
-                .flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.latitude}&lon=${pos.longitude}&cnt=50&units=${this._units}&APPID=${this._APPID}`))
+                .flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.latitude}&lon=${pos.longitude}`, options))
                 .map((res: Response) => res.json().list)
                 .publishReplay(1)
                 .refCount()
