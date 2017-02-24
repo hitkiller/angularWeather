@@ -3,7 +3,9 @@ import {
     Http,
     Response,
     Headers,
+    Request,
     RequestOptions,
+    RequestMethod,
     URLSearchParams
 } from '@angular/http';
 import {Observer, Observable, BehaviorSubject} from 'rxjs';
@@ -24,13 +26,11 @@ export class GetMeteoService {
         params.append('units', 'metric')
         params.append('APPID', '47bc4e43962dbb173c1a3a7b2d5d0aa9')
 
-        const headers = new Headers({ 'Accept': 'application/json' });
-
-        const options = new RequestOptions({ headers: headers, search: params });
+        const options = new RequestOptions({ method: RequestMethod.Get, search: params });
 
         if (!this._citiesData$) {
             this._citiesData$ = this.geolocationService.getLocation()
-                .flatMap(pos => this.http.get(`http://api.openweathermap.org/data/2.5/find?lat=${pos.latitude}&lon=${pos.longitude}`, options))
+                .flatMap(pos => this.http.request(`http://api.openweathermap.org/data/2.5/find?lat=${pos.latitude}&lon=${pos.longitude}`, options))
                 .map((res: Response) => res.json().list)
                 .publishReplay(1)
                 .refCount()

@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 
+import {requestOptionsProvider}   from './default-request-options.service';
 import {CustomPreloadingStrategy} from './custom-preloading-strategy';
 
 import {CoreModule}  from './core/core.module';
@@ -28,7 +29,10 @@ import {AppComponent} from './app.component';
       ComposeWidgetComponent
     ],
     bootstrap: [AppComponent],
-    providers: [CustomPreloadingStrategy]
+    providers: [
+      CustomPreloadingStrategy,
+      requestOptionsProvider
+    ]
 })
 
 export class AppModule {
