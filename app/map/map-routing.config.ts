@@ -14,7 +14,10 @@ export const MapRoutes: Routes = [
             },
             {
                 path: 'map',
-                component: MapComponent
+                component: MapComponent,
+                data: {
+                    title: "Let's browse the map to know where you are"
+                }
             }
         ]
     }

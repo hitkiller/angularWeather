@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {GeolocationService} from './geolocation.service';
+import {GeolocationService} from './utilities/geolocation.service';
+import {GetCurrentPageTitleService} from './utilities/get-current-page-title.service';
 import {HeaderComponent} from "./header.component";
 import {FooterComponent} from "./footer.component";
 
@@ -11,7 +12,10 @@ import {FooterComponent} from "./footer.component";
         HeaderComponent,
         FooterComponent
     ],
-    providers: [GeolocationService],
+    providers: [
+      GeolocationService,
+      GetCurrentPageTitleService
+    ],
     exports: [
         HeaderComponent,
         FooterComponent

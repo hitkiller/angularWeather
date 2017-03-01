@@ -16,13 +16,19 @@ export const MeteoRoutes: Routes = [
             },
             {
                 path: 'meteo',
-                component: MeteoCitiesComponent
+                component: MeteoCitiesComponent,
+                data: {
+                    title: "Here's how the weather looks like for 50 nearest locations"
+                }
             },
             {
                 path: 'city/:id',
                 component: MeteoCityDetailComponent,
                 resolve: {
                     city: MeteoCityDetailResolverService
+                },
+                data: {
+                    title: 'Detailed location weather description'
                 }
             }
         ]

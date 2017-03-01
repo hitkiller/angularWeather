@@ -2,7 +2,7 @@
 
 import {Component, OnInit} from '@angular/core';
 
-import {GeolocationService} from '../core/geolocation.service';
+import {GeolocationService} from '../core/utilities/geolocation.service';
 
 @Component({
     selector: 'google-map',

@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {TempConversionPipe} from './temp-measure-conversion.pipe';
 
-describe('Test: TempConversionPipe', () => {
+describe('TempConversionPipe', () => {
 
     let testee;
 
@@ -11,19 +11,19 @@ describe('Test: TempConversionPipe', () => {
         testee = new TempConversionPipe();
     });
 
-    it('"positive"', () => {
+    it('should convert positive temperatures', () => {
         expect(testee.transform(90)).toEqual(194);
     });
 
-    it('"negative"', () => {
+    it('should convert negative temperatures', () => {
         expect(testee.transform(-70)).toEqual(-94);
     });
 
-    it('"zero"', () => {
+    it('should convert zero to 32', () => {
         expect(testee.transform(0)).toEqual(32);
     });
 
-    it('"decimal"', () => {
+    it('should accept decimal temperature numbers as well', () => {
         expect(testee.transform(9.9999)).toEqual(49.99982);
     });
 

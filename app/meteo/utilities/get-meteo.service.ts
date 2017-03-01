@@ -10,7 +10,7 @@ import {
 } from '@angular/http';
 import {Observer, Observable, BehaviorSubject} from 'rxjs';
 
-import {GeolocationService} from '../../core/geolocation.service';
+import {GeolocationService} from '../../core/utilities/geolocation.service';
 
 @Injectable()
 export class GetMeteoService {
