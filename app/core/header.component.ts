@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, NavigationEnd, Routes, ActivatedRouteSnapshot} from '@angular/router';
 
-import {GetCurrentPageTitleService} from './utilities/get-current-page-title.service';
+import {HeaderCurrentTitleService} from './utilities/header-current-title.service';
 
 @Component({
     selector: 'header-panel',
@@ -16,11 +16,11 @@ import {GetCurrentPageTitleService} from './utilities/get-current-page-title.ser
           font-weight: normal;
           color: #222;
      }`],
-    providers: [GetCurrentPageTitleService]
+    providers: [HeaderCurrentTitleService]
 })
 
 export class HeaderComponent implements OnInit {
-    constructor(private router: Router, private getCurrentTitleService: GetCurrentPageTitleService) { }
+    constructor(private router: Router, private getCurrentTitleService: HeaderCurrentTitleService) { }
 
     title: string = "Weather app";
 

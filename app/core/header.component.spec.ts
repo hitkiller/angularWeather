@@ -15,8 +15,7 @@ describe('HeaderComponent', () => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule],
             declarations: [HeaderComponent]
-        })
-            .compileComponents();
+        });
     }));
 
     beforeEach(() => {
