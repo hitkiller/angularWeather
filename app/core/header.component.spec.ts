@@ -23,7 +23,10 @@ describe('HeaderComponent', () => {
         component = fixture.componentInstance;
         de = fixture.debugElement.query(By.css('h1'));
         el = de.nativeElement;
-        fixture.detectChanges();
+    });
+
+    it('no title in the DOM until manually call `detectChanges`', () => {
+        expect(el.textContent).toEqual('');
     });
 
     it('should create', () => {
