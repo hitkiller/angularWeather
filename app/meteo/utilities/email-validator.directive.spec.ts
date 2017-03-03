@@ -1,19 +1,15 @@
-import { Component, forwardRef, Directive } from '@angular/core';
-import { TestBed, getTestBed, async } from '@angular/core/testing';
-import { FormsModule, NG_VALIDATORS, Validator, AbstractControl, NgForm } from '@angular/forms';
-import { dispatchEvent } from '@angular/platform-browser/testing/browser_util';
-import { By } from '@angular/platform-browser';
+import {Component, forwardRef, Directive} from '@angular/core';
+import {TestBed, getTestBed, async} from '@angular/core/testing';
+import {FormsModule, NG_VALIDATORS, Validator, AbstractControl, NgForm} from '@angular/forms';
+import {dispatchEvent} from '@angular/platform-browser/testing/browser_util';
+import {By} from '@angular/platform-browser';
 
 import {EmailValidatorDirective} from './email-validator.directive';
 
-
 @Component({
-    template: `
-    <form>
-      <input type="email" name="email" ngModel validateEmail>
-    </form>
-  `
+    template: `<form><input type="email" name="email" ngModel validateEmail></form>`
 })
+
 class TestComponent {
     email;
 }
