@@ -15,6 +15,7 @@ export class GeolocationService {
                     2: 'errors.location.positionUnavailable',
                     3: 'errors.location.timeout'
                 }[error.code]);
+                console.error(error);
             }, opts);
         return defaultLocation$;
     };
