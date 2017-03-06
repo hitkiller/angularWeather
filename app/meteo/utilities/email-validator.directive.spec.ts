@@ -14,7 +14,7 @@ class TestComponent {
     email;
 }
 
-describe('component: TestEmailComponent', () => {
+describe('TestEmailComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [FormsModule],

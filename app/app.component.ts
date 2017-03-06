@@ -4,16 +4,18 @@ import {Component} from '@angular/core';
     selector: 'weather-app',
     template: `
     <header-panel></header-panel>
-    <nav>
-      <a routerLink="/meteo" routerLinkActive="active">Meteo Cities</a>
-      <a routerLink="/map" routerLinkActive="active">Current location map</a>
-      <a [routerLink]="[{ outlets: { widget: ['compose'] } }]" routerLinkActive="active">Weather widget (two nearest locations)</a>
-    </nav>
-    <router-outlet></router-outlet>
-    <router-outlet name="widget"></router-outlet>
+    <navigation></navigation>
     <footer-panel></footer-panel>
     `,
-    styleUrls: ['./app.component.css'],
+    styles: [`
+      :host {
+          font-family: helvetica, arial, sans-serif;
+          box-sizing: border-box;
+          background: #f7f6f5;
+          padding: 5px;
+          display: block;
+          height: 100%;
+      }`]
 })
 
 export class AppComponent {
